@@ -35,6 +35,7 @@ function buildOffsetPathD(pathEl, offset = -60, samples = 360) {
     .map(([x, y], i) => `${i ? "L" : "M"}${x.toFixed(2)} ${y.toFixed(2)}`)
     .join(" ");
 }
+
 const About = () => {
   const sectionRef = useRef(null);
   const pathRef = useRef(null);
@@ -81,63 +82,78 @@ const About = () => {
 
   /* ===== GSAP ===== */
   useLayoutEffect(() => {
+    const section = sectionRef.current;
     const path = pathRef.current;
     const textPathGeom = textPathGeomRef.current;
-    if (!path || !textPathGeom) return;
+    if (!section || !path || !textPathGeom) return;
 
+    // 곡선 초기화
     const len = path.getTotalLength();
     path.style.strokeDasharray = `${len}`;
     path.style.strokeDashoffset = `${len}`;
+
+    // 텍스트 경로(오프셋) 생성
     const d2 = buildOffsetPathD(path, -10, 360);
     if (d2) textPathGeom.setAttribute("d", d2);
 
+    // 사진 회전 기준 중앙 고정 + 초기 각도 0
+    gsap.set(photoRef.current, { transformOrigin: "50% 50%", rotateZ: 0 });
+
+    // 화면 진입 시 시퀀스
     const io = new IntersectionObserver(
       ([e]) => {
         if (!e.isIntersecting) return;
         const tl = gsap.timeline({ defaults: { ease: "power2.out" } });
-        tl.to(path, { strokeDashoffset: 0, duration: 2.8 })
-          .from(textRef.current, { autoAlpha: 0, duration: 0.6 }, "-=0.5")
+
+        tl.to(path, { strokeDashoffset: 0, duration: 2.6 }) // 곡선 그리기
+          .from(textRef.current, { autoAlpha: 0, duration: 0.5 }, "-=0.4") // 텍스트 페이드
           .from(
             photoRef.current,
-            { autoAlpha: 0, y: 20, duration: 0.7 },
-            "-=0.2"
+            { autoAlpha: 0, y: 14, duration: 0.5 }, // 사진 등장
+            "-=0.15"
+          )
+          .to(
+            photoRef.current,
+            { rotateZ: -8, duration: 0.45, ease: "power3.out" }, // ← 왼쪽으로만 '기울이기'
+            "-=0.05"
           )
           .from(
             nameRef.current,
-            { autoAlpha: 0, y: 10, duration: 0.5 },
-            "-=0.1"
+            { autoAlpha: 0, y: 10, duration: 0.45 },
+            "-=0.05"
           )
           .from(
             birthRef.current,
-            { autoAlpha: 0, y: 10, duration: 0.45 },
-            "-=0.35"
+            { autoAlpha: 0, y: 10, duration: 0.4 },
+            "-=0.25"
           )
           .from(
             eduRef.current,
-            { autoAlpha: 0, y: 14, duration: 0.5 },
+            { autoAlpha: 0, y: 12, duration: 0.45 },
             "-=0.05"
           )
           .from(
             expRef.current,
-            { autoAlpha: 0, y: 14, duration: 0.5 },
-            "-=0.15"
+            { autoAlpha: 0, y: 12, duration: 0.45 },
+            "-=0.1"
           )
           .from(
             cerRef.current,
-            { autoAlpha: 0, y: 14, duration: 0.5 },
-            "-=0.15"
+            { autoAlpha: 0, y: 12, duration: 0.45 },
+            "-=0.1"
           )
           .from(
             skillRef.current,
-            { autoAlpha: 0, y: 16, duration: 0.55 },
-            "-=0.1"
+            { autoAlpha: 0, y: 14, duration: 0.55 },
+            "-=0.05"
           );
+
         io.disconnect();
       },
       { threshold: 0.35 }
     );
 
-    io.observe(sectionRef.current);
+    io.observe(section);
     return () => io.disconnect();
   }, []);
 
@@ -283,7 +299,7 @@ const About = () => {
 
           <section ref={eduRef}>
             <h3 className="about__title">Education</h3>
-            <ul>
+            <ul className="about__list">
               {EDU.map((v) => (
                 <Row key={v.date} {...v} />
               ))}
@@ -292,7 +308,7 @@ const About = () => {
 
           <section ref={expRef}>
             <h3 className="about__title">Experience</h3>
-            <ul>
+            <ul className="about__list">
               {EXP.map((v) => (
                 <Row key={v.date} {...v} />
               ))}
@@ -301,7 +317,7 @@ const About = () => {
 
           <section ref={cerRef}>
             <h3 className="about__title">Certification</h3>
-            <ul>
+            <ul className="about__list">
               {CER.map((v) => (
                 <Row key={v.date} {...v} />
               ))}
@@ -344,4 +360,5 @@ const About = () => {
     </section>
   );
 };
+
 export default About;
