@@ -1,0 +1,93 @@
+@use 'sass:math';
+
+// 루트 요소 기본 단위 --------------------------------------------------------------- /
+$rootUnit: 16px !default;
+
+// 딱 두 개만 설정 (디자인 기준폭 / 최소 보장 뷰포트)
+$vw-base: 1920px !default;
+$vw-min: 360px !default;
+
+// 단위 제거 함수 ------------------------------------------------------------------ /
+@function removeUnit($value) {
+    // 숫자 유지 / auto 패스
+    @if ($value == auto) {
+        @return auto;
+    }
+    @return math.div($value, $value * 0 + 1);
+}
+
+// px을 rem 단위로 변경 ------------------------------------------------------------- /
+@function rem($value, $base: $rootUnit) {
+    @if ($value == auto) {
+        @return auto;
+    }
+    @return removeUnit(math.div($value, $base)) * 1rem;
+}
+
+// px을 em 단위로 변경 -------------------------------------------------------------- /
+@function em($value, $base: $rootUnit) {
+    @if ($value == auto) {
+        @return auto;
+    }
+    @return removeUnit(math.div($value, $base)) * 1em;
+}
+
+// 숫자/px/rem/em → px 변환 보조 ---------------------------------------------------- /
+// $context는 em 환산 기준(보통 현재 폰트 사이즈). 기본은 $rootUnit.
+@function ensure-px($value, $context: $rootUnit) {
+    @if ($value == auto) {
+        @return auto;
+    }
+
+    // 1) 단위 없음 → px 부여
+    @if (math.is-unitless($value)) {
+        @return $value * 1px;
+    }
+
+    // 2) 이미 px
+    @if (math.unit($value) == 'px') {
+        @return $value;
+    }
+
+    // 3) rem → px
+    @if (math.unit($value) == 'rem') {
+        @return removeUnit($value) * $rootUnit;
+    }
+
+    // 4) em → px (컨텍스트 필요)
+    @if (math.unit($value) == 'em') {
+        @return removeUnit($value) * $context;
+    }
+
+    // 5) 그 외 단위는 그대로 반환하되 경고 (vw()에서 에러 방지용)
+    @warn "ensure-px(): Unsupported unit '#{math.unit($value)}' for #{$value}. Returning as-is; this may break calculations.";
+    @return $value;
+}
+
+// px(or 숫자/rem/em) -> 화면 기준(svw) 유동값 + 안전한 clamp ------------------------ /
+@function vw($value, $base: $vw-base, $min: $vw-min) {
+    $px: ensure-px($value);
+    $basePx: ensure-px($base);
+    $minPx: ensure-px($min);
+
+    @if ($px == auto) {
+        @return auto;
+    }
+
+    @if (math.unit($px) != 'px' or math.unit($basePx) != 'px' or math.unit($minPx) != 'px') {
+        @error "vw(): expects px/number/rem/em; got #{$value} (unit #{math.unit($px)}), base #{math.unit($basePx)}, min #{math.unit($minPx)}.";
+    }
+
+    // px 대비 비율
+    $ratio: math.div($px, $basePx);
+
+    // "390px 같은 작은 화면에서도 값이 너무 작아지지 않게"
+    // clamp(minPx 값, fluid 값, 원래 px 값)
+    @return clamp(
+        $ratio * $minPx,
+        // 최소 보장값 (예: 390px에서 14~16px 수준)
+        $ratio * 100vw,
+        // 뷰포트 기반 유동값
+        $px // 원래 디자인 px
+    );
+}

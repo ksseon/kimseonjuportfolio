@@ -1,0 +1,70 @@
+/* src/components/pagination/styles.scss */
+@use '../../../styles/utils/' as *;
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: vw(30px);
+    margin-bottom: vw(30px);
+    user-select: none;
+
+    .pagination-list {
+        display: flex;
+        align-items: center;
+        gap: 24px; // 숫자 간 간격
+    }
+
+    /* 공통 버튼 리셋 */
+    .pagination-btn,
+    .pagination-page {
+        border: 0;
+        background: transparent;
+        transition: 0.5s;
+    }
+
+    /* 숫자 버튼 (동그란 배지) */
+    .pagination-page {
+        width: vw(36px);
+        height: vw(36px);
+        @include circle;
+        line-height: 1;
+        @include font-16px;
+        &:hover {
+            transform: translateY(-10%);
+        }
+    }
+
+    /* 활성 숫자 = 연한 회색 배경으로 하이라이트 */
+    .pagination-page.is-active {
+        background-color: $greyscale-400;
+    }
+
+    /* 좌/우 화살표 (‹ ›) */
+    .pagination-btn {
+        width: vw(28px);
+        height: vw(28px);
+        opacity: 0.7;
+        &:hover {
+            opacity: 1;
+        }
+        &.is-disabled {
+            opacity: 0.8;
+            pointer-events: none;
+        }
+    }
+
+    /* 모바일 조정 */
+    @media (max-width: 480px) {
+        .pagination-list {
+            gap: 14px;
+        }
+        .pagination-page {
+            width: 32px;
+            height: 32px;
+        }
+        .pagination-btn {
+            width: 24px;
+            height: 24px;
+        }
+    }
+}

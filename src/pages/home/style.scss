@@ -1,0 +1,11 @@
+@use "../../styles/utils" as *;
+
+.home {
+  width: 100%;
+  .inner {
+    padding: vw(100) 0;
+  }
+  h2 {
+    @include font-32px-B;
+  }
+}
