@@ -1,24 +1,23 @@
-// About.jsx — 곡선 드로잉 + 텍스트는 오프셋 경로로 확실히 띄우기
 import { useLayoutEffect, useRef, memo } from "react";
 import gsap from "gsap";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Autoplay } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/pagination";
 import "./style.scss";
 
-/** 재사용 가능한 리스트 행 */
-const Row = memo(function Row({ date, desc }) {
-  return (
-    <li className="row">
-      <span className="date">{date}</span>
-      <span className="desc">{desc}</span>
-    </li>
-  );
-});
+/* ===== 리스트 행 컴포넌트 ===== */
+const Row = memo(({ date, desc }) => (
+  <li className="row">
+    <span className="date">{date}</span>
+    <span className="desc">{desc}</span>
+  </li>
+));
 
-/* ===== path 오프셋 유틸 =====
-   원본 path를 샘플링하여 각 점의 법선 방향으로 offset만큼 평행 이동한 polyline 경로를 생성 */
+/* ===== Path 오프셋 유틸 ===== */
 function buildOffsetPathD(pathEl, offset = -60, samples = 360) {
   const len = pathEl.getTotalLength();
   if (!len) return null;
-
   const pts = [];
   const eps = Math.max(0.5, len / (samples * 50));
   for (let i = 0; i <= samples; i++) {
@@ -28,22 +27,19 @@ function buildOffsetPathD(pathEl, offset = -60, samples = 360) {
     const dx = p2.x - p.x;
     const dy = p2.y - p.y;
     const nrm = Math.hypot(dx, dy) || 1;
-    const nx = (-dy / nrm) * offset; // (−dy, dx) = 왼쪽 법선
+    const nx = (-dy / nrm) * offset;
     const ny = (dx / nrm) * offset;
     pts.push([p.x + nx, p.y + ny]);
   }
-  let d = "";
-  pts.forEach(
-    ([x, y], i) => (d += (i ? "L" : "M") + x.toFixed(2) + " " + y.toFixed(2))
-  );
-  return d;
+  return pts
+    .map(([x, y], i) => `${i ? "L" : "M"}${x.toFixed(2)} ${y.toFixed(2)}`)
+    .join(" ");
 }
 const About = () => {
   const sectionRef = useRef(null);
-  const pathRef = useRef(null); // 원본 곡선 (보이는 선)
-  const textPathGeomRef = useRef(null); // 텍스트용 오프셋 경로 (보이지 않게)
+  const pathRef = useRef(null);
+  const textPathGeomRef = useRef(null);
   const textRef = useRef(null);
-
   const photoRef = useRef(null);
   const nameRef = useRef(null);
   const birthRef = useRef(null);
@@ -52,7 +48,6 @@ const About = () => {
   const cerRef = useRef(null);
   const skillRef = useRef(null);
 
-  // 데이터
   const EDU = [
     {
       date: "2013. 03 - 2017. 03",
@@ -63,6 +58,7 @@ const About = () => {
       desc: "미림여자정보과학고등학교 멀티미디어과 졸업",
     },
   ];
+
   const EXP = [
     {
       date: "2025. 04 - 2025. 09",
@@ -72,6 +68,7 @@ const About = () => {
     { date: "2017. 06 - 2024. 04", desc: "(주)엔에스스마트 UI/UX 디자이너" },
     { date: "2015. 04 - 2017. 04", desc: "(주)모노엠 그래픽 디자이너" },
   ];
+
   const CER = [
     { date: "2020. 01", desc: "자동차운전면허 2종 보통" },
     { date: "2016. 12", desc: "GTQ 포토샵 1급" },
@@ -81,51 +78,29 @@ const About = () => {
     { date: "2008. 11", desc: "정보처리기능사" },
     { date: "2008. 04", desc: "컴퓨터활용능력 2급" },
   ];
-  const SKILLS = ["Typescript", "React.js", "Recoil", "React-Query"];
 
-  // 텍스트-선 간격(px) — 더 띄우려면 절댓값 ↑ (음수=선의 위/안쪽, 양수=아래/바깥쪽)
-  const TEXT_OFFSET_PX = -10;
-
+  /* ===== GSAP ===== */
   useLayoutEffect(() => {
-    const section = sectionRef.current;
     const path = pathRef.current;
     const textPathGeom = textPathGeomRef.current;
-    if (!section || !path || !textPathGeom) return;
+    if (!path || !textPathGeom) return;
 
-    // 1) 원본 선 드로잉 초기화
     const len = path.getTotalLength();
     path.style.strokeDasharray = `${len}`;
     path.style.strokeDashoffset = `${len}`;
-
-    // 2) 텍스트용 오프셋 경로 생성 & 주입 (겹치지 않게 확실히 띄움)
-    const d2 = buildOffsetPathD(path, TEXT_OFFSET_PX, 360);
+    const d2 = buildOffsetPathD(path, -10, 360);
     if (d2) textPathGeom.setAttribute("d", d2);
 
-    // 3) 사진 회전 기준점
-    gsap.set(photoRef.current, { transformOrigin: "10% 80%" });
-
-    // 4) 인터섹션 진입 시 애니메이션
     const io = new IntersectionObserver(
       ([e]) => {
         if (!e.isIntersecting) return;
         const tl = gsap.timeline({ defaults: { ease: "power2.out" } });
-
-        // 곡선 드로우
-        tl.to(path, { strokeDashoffset: 0, duration: 2.8 });
-
-        // 텍스트는 페이드만
-        tl.from(textRef.current, { autoAlpha: 0, duration: 0.6 }, "-=0.5");
-
-        // 사진/정보 순차 등장
-        tl.from(
-          photoRef.current,
-          { autoAlpha: 0, y: 20, duration: 0.7 },
-          "-=0.2"
-        )
-          .to(
+        tl.to(path, { strokeDashoffset: 0, duration: 2.8 })
+          .from(textRef.current, { autoAlpha: 0, duration: 0.6 }, "-=0.5")
+          .from(
             photoRef.current,
-            { rotate: -10, duration: 0.7, ease: "power3.out" },
-            "+=0.05"
+            { autoAlpha: 0, y: 20, duration: 0.7 },
+            "-=0.2"
           )
           .from(
             nameRef.current,
@@ -157,122 +132,214 @@ const About = () => {
             { autoAlpha: 0, y: 16, duration: 0.55 },
             "-=0.1"
           );
-
         io.disconnect();
       },
       { threshold: 0.35 }
     );
 
-    io.observe(section);
+    io.observe(sectionRef.current);
     return () => io.disconnect();
-  }, [TEXT_OFFSET_PX]);
+  }, []);
+
+  /* ===== Skill 슬라이드 ===== */
+  const skillSlides = [
+    {
+      items: [
+        {
+          icon: "/icons/typescript.png",
+          title: "TypeScript",
+          desc: "코드 안정성과 가독성을 높이고 오류를 사전에 방지할 수 있습니다.",
+        },
+        {
+          icon: "/icons/react.png",
+          title: "React.js",
+          desc: "컴포넌트 기반 구조로 재사용 가능한 UI를 구축할 수 있습니다.",
+        },
+        {
+          icon: "/icons/zustand.png",
+          title: "Zustand",
+          desc: "전역 상태를 효율적으로 관리할 수 있습니다.",
+        },
+        {
+          icon: "/icons/query.png",
+          title: "React-Query",
+          desc: "서버 상태를 관리할 수 있습니다.",
+        },
+      ],
+    },
+    {
+      items: [
+        {
+          icon: "/icons/redux.png",
+          title: "Redux",
+          desc: "복잡한 상태를 체계적으로 관리할 수 있습니다.",
+        },
+        {
+          icon: "/icons/router.png",
+          title: "React Router",
+          desc: "유연한 라우팅을 구현할 수 있습니다.",
+        },
+        {
+          icon: "/icons/node.png",
+          title: "Node.js",
+          desc: "Express로 API 서버를 구현하고 서버 통신을 익혔습니다.",
+        },
+        {
+          icon: "/icons/style.png",
+          title: "Styled-Components",
+          desc: "컴포넌트 기반으로 모듈화된 스타일을 작성할 수 있습니다.",
+        },
+      ],
+    },
+    {
+      items: [
+        {
+          icon: "/icons/js.png",
+          title: "JavaScript",
+          desc: "동적인 웹 페이지를 구현하며 상호작용을 설계할 수 있습니다.",
+        },
+        {
+          icon: "/icons/scss.png",
+          title: "SCSS",
+          desc: "변수와 믹스를 활용해 효율적인 스타일링을 구현할 수 있습니다.",
+        },
+        {
+          icon: "/icons/css.png",
+          title: "CSS3",
+          desc: "시각적으로 매력적인 인터페이스를 구성할 수 있습니다.",
+        },
+        {
+          icon: "/icons/html.png",
+          title: "HTML5",
+          desc: "구조적이고 의미 있는 웹 페이지를 작성할 수 있습니다.",
+        },
+      ],
+    },
+    {
+      items: [
+        {
+          icon: "/icons/github.png",
+          title: "GitHub·Vercel",
+          desc: "버전 관리 및 배포 자동화를 통해 안정적인 협업 환경을 운영했습니다.",
+        },
+        {
+          icon: "/icons/figma.png",
+          title: "Figma",
+          desc: "효율적인 UI/UX 디자인과 실시간 협업을 통해 디자인 의도를 전달합니다.",
+        },
+        {
+          icon: "/icons/psai.png",
+          title: "Photoshop·Illustrator",
+          desc: "로고, 인포그래픽 등 시각 요소 제작과 색 보정을 수행했습니다.",
+        },
+        {
+          icon: "/icons/gpt.png",
+          title: "GPT·Claude",
+          desc: "문서 구조화 및 이미지 시각화를 효율적으로 수행합니다.",
+        },
+      ],
+    },
+  ];
 
   return (
     <section id="about" className="about" ref={sectionRef}>
-      {/* 곡선 + 오프셋 텍스트 */}
+      {/* ===== 상단 곡선 ===== */}
       <svg
         className="about__curve"
         xmlns="http://www.w3.org/2000/svg"
         width="567"
         height="564"
         viewBox="0 0 567 564"
-        aria-hidden="true"
       >
-        {/* 원본 보이는 곡선 */}
         <path
           ref={pathRef}
-          id="aboutPath"
-          d="M2.00049 2.00052C20.0005 46.0005 95.8572 85.4697 186 106.001C467 170.001 443 390.001 353 417.001C305.872 431.139 287 363.001 337 347.001C397.538 327.629 496 405.001 521 515.001"
+          d="M2 2C20 46 95.857 85.47 186 106C467 170 443 390 353 417C305.872 431.139 287 363 337 347C397.538 327.629 496 405 521 515"
           className="about__curve-path"
         />
-
-        {/* 텍스트용: 오프셋 경로 (보이지 않게) */}
         <path
           id="aboutPathText"
           ref={textPathGeomRef}
           className="about__curve-path--invisible"
         />
-
-        {/* 오프셋 경로를 따라 텍스트 */}
         <text className="about__curve-text" ref={textRef}>
           <textPath href="#aboutPathText" startOffset="20%">
-            성실함 • 열정적인 • 긍정적인 • 겸손함
+            성실함 · 열정적인 · 긍정적인 · 겸손함
           </textPath>
         </text>
       </svg>
 
-      {/* 왼쪽 사진 / 오른쪽 정보 */}
+      {/* ===== 프로필 ===== */}
       <div className="about__wrap">
         <div className="about__photo" ref={photoRef}>
           <img src="/images/my.png" alt="김선주 프로필" />
         </div>
-
         <div className="about__info">
-          <header className="about__header">
-            <h2 className="about__name" ref={nameRef}>
-              김선주 <span className="en">KimSeonJu</span>
-            </h2>
-            <p className="about__birth" ref={birthRef}>
-              1992. 09. 28
-            </p>
-          </header>
+          <h2 className="about__name" ref={nameRef}>
+            김선주 <span className="en">KimSeonJu</span>
+          </h2>
+          <p className="about__birth" ref={birthRef}>
+            1992.09.28
+          </p>
 
-          {/* 학력 */}
-          <section className="about__block" ref={eduRef}>
+          <section ref={eduRef}>
             <h3 className="about__title">Education</h3>
-            <ul className="about__list">
-              {EDU.map((item) => (
-                <Row
-                  key={`${item.date}-${item.desc}`}
-                  date={item.date}
-                  desc={item.desc}
-                />
+            <ul>
+              {EDU.map((v) => (
+                <Row key={v.date} {...v} />
               ))}
             </ul>
           </section>
 
-          {/* 경력 */}
-          <section className="about__block" ref={expRef}>
+          <section ref={expRef}>
             <h3 className="about__title">Experience</h3>
-            <ul className="about__list">
-              {EXP.map((item) => (
-                <Row
-                  key={`${item.date}-${item.desc}`}
-                  date={item.date}
-                  desc={item.desc}
-                />
+            <ul>
+              {EXP.map((v) => (
+                <Row key={v.date} {...v} />
               ))}
             </ul>
           </section>
 
-          {/* 자격증 */}
-          <section className="about__block" ref={cerRef}>
+          <section ref={cerRef}>
             <h3 className="about__title">Certification</h3>
-            <ul className="about__list">
-              {CER.map((item) => (
-                <Row
-                  key={`${item.date}-${item.desc}`}
-                  date={item.date}
-                  desc={item.desc}
-                />
+            <ul>
+              {CER.map((v) => (
+                <Row key={v.date} {...v} />
               ))}
             </ul>
           </section>
         </div>
       </div>
 
-      {/* ▼ 스킬: 본문 전체 아래, 브라우저 가운데 정렬 */}
+      {/* ===== My Skill ===== */}
       <section className="about__skill about__skill--global" ref={skillRef}>
-        <div className="about__skill-inner">
-          <h3 className="about__skill-title">My Skill</h3>
-          <ul className="about__skill-list">
-            {SKILLS.map((s) => (
-              <li className="badge" key={s}>
-                {s}
-              </li>
-            ))}
-          </ul>
-        </div>
+        <h3 className="about__skill-title">My Skill</h3>
+        <Swiper
+          modules={[Pagination, Autoplay]}
+          pagination={{ clickable: true }}
+          autoplay={{ delay: 2000, disableOnInteraction: false }}
+          loop
+          spaceBetween={40}
+          slidesPerView={1}
+          className="about__skill-swiper"
+        >
+          {skillSlides.map((slide, idx) => (
+            <SwiperSlide key={idx}>
+              <div className="about__skill-grid">
+                {slide.items.map((item, i) => (
+                  <div className="skill-card" key={i}>
+                    <img
+                      src={item.icon}
+                      alt={item.title}
+                      className="skill-icon"
+                    />
+                    <h4 className="skill-title">{item.title}</h4>
+                    <p className="skill-desc">{item.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </section>
     </section>
   );
