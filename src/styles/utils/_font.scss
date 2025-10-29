@@ -1,0 +1,315 @@
+@use './unit' as *;
+@use 'sass:math';
+
+// px을 clamp(rem) 단위로 변환하는 믹스인 -------------------------------
+/*
+@mixin font-size-clamp($value, $base: $rootUnit) {
+    $range: 2px; // 기본값
+
+    @if $value <= 18px {
+        $range: 1px;
+    } @else if $value >= 30px {
+        $range: 4px;
+    }
+
+    font-size: clamp(rem($value - $range, $base), rem($value, $base), rem($value + $range, $base));
+}
+    */
+@mixin font-size-clamp($value, $base: $rootUnit) {
+    // 가변 범위(기존 로직 유지)
+    $range: 2px;
+    @if $value <= 18px {
+        $range: 1px;
+    } @else if $value >= 30px {
+        $range: 4px;
+    }
+
+    // 비율 및 값 계산
+    $ratio: math.div($value, $vw-base); // 무단위 비율
+    $min: rem($value - $range, $base); // px 하한을 rem으로
+    $max: rem($value + $range, $base); // px 상한을 rem으로
+
+    // 레거시/안전용 고정 폰트 먼저 한 줄 (브라우저 미지원 대비)
+    font-size: rem($value, $base);
+
+    // 진짜 유동 폰트: 가운데에 뷰포트 단위 사용
+    font-size: clamp($min, #{$ratio * 100}svw, $max);
+}
+
+// --------------------
+// FONT MIXINS
+// --------------------
+
+// 60px
+@mixin font-60px-B {
+    @include font-size-clamp(60px);
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: rem(60px);
+}
+// 60px
+@mixin font-55px-B {
+    @include font-size-clamp(55px);
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: rem(60px);
+}
+
+// 36px
+@mixin font-36px-B {
+    @include font-size-clamp(36px);
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: rem(54px);
+}
+@mixin font-36px {
+    @include font-size-clamp(36px);
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: rem(54px);
+}
+
+// 35px
+@mixin font-35px-B {
+    @include font-size-clamp(35px);
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: rem(52.5px);
+}
+
+// 32px
+@mixin font-32px-B {
+    @include font-size-clamp(32px);
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: rem(48px);
+}
+@mixin font-32px-SB {
+    @include font-size-clamp(32px);
+    font-weight: 600;
+    letter-spacing: 0;
+    line-height: rem(48px);
+}
+
+// 30px
+@mixin font-30px-B {
+    @include font-size-clamp(30px);
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: rem(45px);
+}
+@mixin font-30px-SB {
+    font-size: rem(30px);
+    font-weight: 600;
+    letter-spacing: 0;
+    line-height: rem(45px);
+}
+@mixin font-30px-M {
+    @include font-size-clamp(30px);
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: rem(45px);
+}
+
+// 28px
+@mixin font-28px-B {
+    @include font-size-clamp(28px);
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: rem(42px);
+}
+@mixin font-28px-SB {
+    @include font-size-clamp(28px);
+    font-weight: 600;
+    letter-spacing: 0;
+    line-height: rem(42px);
+}
+@mixin font-28px-EB {
+    @include font-size-clamp(28px);
+    font-weight: 800;
+    letter-spacing: 0;
+    line-height: rem(42px);
+}
+@mixin font-28px-M {
+    @include font-size-clamp(28px);
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: rem(42px);
+}
+@mixin font-28px {
+    @include font-size-clamp(28px);
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: rem(40px);
+}
+
+// 24px
+@mixin font-24px-B {
+    @include font-size-clamp(24px);
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: rem(36px);
+}
+@mixin font-24px-SB {
+    @include font-size-clamp(24px);
+    font-weight: 600;
+    letter-spacing: 0;
+    line-height: rem(36px);
+}
+@mixin font-24px-M {
+    @include font-size-clamp(24px);
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: rem(36px);
+}
+
+@mixin font-24px {
+    @include font-size-clamp(24px);
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: rem(21px);
+}
+
+// 22px
+@mixin font-22px {
+    @include font-size-clamp(22px);
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: rem(33px);
+}
+
+// 20px
+@mixin font-20px-B {
+    @include font-size-clamp(20px);
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: rem(30px);
+}
+@mixin font-20px-SB {
+    @include font-size-clamp(20px);
+    font-weight: 600;
+    letter-spacing: 0;
+    line-height: rem(30px);
+}
+@mixin font-20px-M {
+    @include font-size-clamp(20px);
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: rem(30px);
+}
+@mixin font-20px {
+    @include font-size-clamp(20px);
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: rem(30px);
+}
+
+// 18px
+@mixin font-18px-B {
+    @include font-size-clamp(18px);
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: rem(27px);
+}
+@mixin font-18px-SB {
+    @include font-size-clamp(18px);
+    font-weight: 600;
+    letter-spacing: 0;
+    line-height: rem(27px);
+}
+@mixin font-18px-M {
+    @include font-size-clamp(18px);
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: rem(27px);
+}
+@mixin font-18px {
+    @include font-size-clamp(18px);
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: rem(27px);
+}
+
+// 16px
+@mixin font-16px-EB {
+    @include font-size-clamp(16px);
+    font-weight: 800;
+    letter-spacing: 0;
+    line-height: rem(24px);
+}
+@mixin font-16px-B {
+    @include font-size-clamp(16px);
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: rem(24px);
+}
+@mixin font-16px-SB {
+    @include font-size-clamp(16px);
+    font-weight: 600;
+    letter-spacing: 0;
+    line-height: rem(24px);
+}
+@mixin font-16px-M {
+    @include font-size-clamp(16px);
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: rem(24px);
+}
+@mixin font-16px {
+    @include font-size-clamp(16px);
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: rem(24px);
+}
+
+// 14px
+@mixin font-14px-B {
+    @include font-size-clamp(14px);
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: rem(21px);
+}
+@mixin font-14px-SB {
+    @include font-size-clamp(14px);
+    font-weight: 600;
+    letter-spacing: 0;
+    line-height: rem(21px);
+}
+@mixin font-14px-M {
+    @include font-size-clamp(14px);
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: rem(21px);
+}
+@mixin font-14px {
+    @include font-size-clamp(14px);
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: rem(21px);
+}
+
+// 12px
+@mixin font-12px-B {
+    @include font-size-clamp(12px);
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: rem(18px);
+}
+@mixin font-12px-SB {
+    @include font-size-clamp(12px);
+    font-weight: 600;
+    letter-spacing: 0;
+    line-height: rem(18px);
+}
+@mixin font-12px-M {
+    @include font-size-clamp(12px);
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: rem(18px);
+}
+@mixin font-12px {
+    @include font-size-clamp(12px);
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: rem(18px);
+}

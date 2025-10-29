@@ -1,0 +1,63 @@
+@use './../utils' as *;
+
+// 기본 버튼 스타일
+.button {
+    appearance: none;
+    border-radius: vw(50px);
+    border: 0;
+    padding: rem(10px);
+    box-sizing: border-box;
+    line-height: 50%;
+    transition: 0.2s;
+    &:hover {
+        box-shadow: 0 0 vw(5px) vw(2px) rgba($default, 0.2);
+        &:not(.g, .o) {
+            // filter: brightness(0.9);
+        }
+    }
+    &.large {
+        width: vw(380px);
+        height: vw(45px);
+    }
+    &.middle {
+        width: vw(180px);
+        height: vw(45px);
+    }
+    &.small {
+        width: vw(120px);
+        height: vw(45px);
+    }
+
+    &.Xsmall {
+        width: vw(90px);
+        height: vw(36px);
+    }
+    &.g {
+        background-color: $mint;
+        color: $white;
+
+        &:hover {
+            background-color: $foundation-mint-normalhover;
+        }
+    }
+
+    &.o {
+        color: $white;
+        background-color: $orange;
+        &:hover {
+            background-color: $foundation-orange-normalhover;
+        }
+        &2 {
+            color: $white;
+            background-color: transparent;
+            border: 1px solid $orange;
+            &:hover {
+                background-color: $orange;
+            }
+        }
+    }
+}
+
+button {
+    cursor: pointer;
+}
