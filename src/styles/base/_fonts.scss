@@ -1,0 +1,132 @@
+/* ========================
+   Pretendard (영문 + 숫자만)
+   ======================== */
+@font-face {
+    font-family: 'PretendardLatin';
+    font-weight: 900;
+    src: local('Pretendard Black'), url('/fonts/Pretendard-Black.woff2') format('woff2'),
+        url('/fonts/Pretendard-Black.woff') format('woff');
+    unicode-range: U+0041-005A, U+0061-007A, U+0030-0039; /* A-Z, a-z, 0-9 */
+}
+
+@font-face {
+    font-family: 'PretendardLatin';
+    font-weight: 700;
+    src: local('Pretendard Bold'), url('/fonts/Pretendard-Bold.woff2') format('woff2'),
+        url('/fonts/Pretendard-Bold.woff') format('woff');
+    unicode-range: U+0041-005A, U+0061-007A, U+0030-0039;
+}
+
+@font-face {
+    font-family: 'PretendardLatin';
+    font-weight: 600;
+    src: local('Pretendard SemiBold'), url('/fonts/Pretendard-SemiBold.woff2') format('woff2'),
+        url('/fonts/Pretendard-SemiBold.woff') format('woff');
+    unicode-range: U+0041-005A, U+0061-007A, U+0030-0039;
+}
+
+@font-face {
+    font-family: 'PretendardLatin';
+    font-weight: 500;
+    src: local('Pretendard Medium'), url('/fonts/Pretendard-Medium.woff2') format('woff2'),
+        url('/fonts/Pretendard-Medium.woff') format('woff');
+    unicode-range: U+0041-005A, U+0061-007A, U+0030-0039;
+}
+
+@font-face {
+    font-family: 'PretendardLatin';
+    font-weight: 400;
+    src: local('Pretendard Regular'), url('/fonts/Pretendard-Regular.woff2') format('woff2'),
+        url('/fonts/Pretendard-Regular.woff') format('woff');
+    unicode-range: U+0041-005A, U+0061-007A, U+0030-0039;
+}
+
+@font-face {
+    font-family: 'PretendardLatin';
+    font-weight: 300;
+    src: local('Pretendard Light'), url('/fonts/Pretendard-Light.woff2') format('woff2'),
+        url('/fonts/Pretendard-Light.woff') format('woff');
+    unicode-range: U+0041-005A, U+0061-007A, U+0030-0039;
+}
+
+@font-face {
+    font-family: 'PretendardLatin';
+    font-weight: 200;
+    src: local('Pretendard ExtraLight'), url('/fonts/Pretendard-ExtraLight.woff2') format('woff2'),
+        url('/fonts/Pretendard-ExtraLight.woff') format('woff');
+    unicode-range: U+0041-005A, U+0061-007A, U+0030-0039;
+}
+
+@font-face {
+    font-family: 'PretendardLatin';
+    font-weight: 100;
+    src: local('Pretendard Thin'), url('/fonts/Pretendard-Thin.woff2') format('woff2'),
+        url('/fonts/Pretendard-Thin.woff') format('woff');
+    unicode-range: U+0041-005A, U+0061-007A, U+0030-0039;
+}
+
+/* ========================
+   SUIT (한글 전용)
+   ======================== */
+@font-face {
+    font-family: 'SuitKorean';
+    font-weight: 900;
+    src: local('SUIT Heavy'), url('/fonts/SUIT-Heavy.ttf') format('truetype');
+    unicode-range: U+AC00-D7A3; /* 한글 가~힣 */
+}
+
+@font-face {
+    font-family: 'SuitKorean';
+    font-weight: 800;
+    src: local('SUIT ExtraBold'), url('/fonts/SUIT-ExtraBold.ttf') format('truetype');
+    unicode-range: U+AC00-D7A3;
+}
+
+@font-face {
+    font-family: 'SuitKorean';
+    font-weight: 700;
+    src: local('SUIT Bold'), url('/fonts/SUIT-Bold.ttf') format('truetype');
+    unicode-range: U+AC00-D7A3;
+}
+
+@font-face {
+    font-family: 'SuitKorean';
+    font-weight: 600;
+    src: local('SUIT SemiBold'), url('/fonts/SUIT-SemiBold.ttf') format('truetype');
+    unicode-range: U+AC00-D7A3;
+}
+
+@font-face {
+    font-family: 'SuitKorean';
+    font-weight: 500;
+    src: local('SUIT Medium'), url('/fonts/SUIT-Medium.ttf') format('truetype');
+    unicode-range: U+AC00-D7A3;
+}
+
+@font-face {
+    font-family: 'SuitKorean';
+    font-weight: 400;
+    src: local('SUIT Regular'), url('/fonts/SUIT-Regular.ttf') format('truetype');
+    unicode-range: U+AC00-D7A3;
+}
+
+@font-face {
+    font-family: 'SuitKorean';
+    font-weight: 300;
+    src: local('SUIT Light'), url('/fonts/SUIT-Light.ttf') format('truetype');
+    unicode-range: U+AC00-D7A3;
+}
+
+@font-face {
+    font-family: 'SuitKorean';
+    font-weight: 200;
+    src: local('SUIT ExtraLight'), url('/fonts/SUIT-ExtraLight.ttf') format('truetype');
+    unicode-range: U+AC00-D7A3;
+}
+
+@font-face {
+    font-family: 'SuitKorean';
+    font-weight: 100;
+    src: local('SUIT Thin'), url('/fonts/SUIT-Thin.ttf') format('truetype');
+    unicode-range: U+AC00-D7A3;
+}

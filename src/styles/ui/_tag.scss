@@ -1,0 +1,131 @@
+@use './../utils/unit' as *;
+@use './../utils/font' as *;
+@use './../utils/color' as *;
+@use './../utils/mixin' as *;
+
+.circle {
+    @include circle;
+}
+
+/* 공통 베이스 */
+.ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: keep-all; /* 한글 단어 단위 유지 */
+    overflow-wrap: anywhere; /* 너무 긴 해시태그/URL 대비 */
+}
+
+/* 1줄 말줄임 */
+.ellipsis-1 {
+    @extend .ellipsis;
+    white-space: nowrap;
+}
+
+/* N줄 말줄임 공통 (2줄 이상) */
+@mixin ellipsis-multi($lines) {
+    @extend .ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: $lines; /* 줄 수 */
+}
+
+/* 2~4줄 버전 */
+.ellipsis-2 {
+    @include ellipsis-multi(2);
+}
+.ellipsis-3 {
+    @include ellipsis-multi(3);
+}
+.ellipsis-4 {
+    @include ellipsis-multi(4);
+}
+
+// .html__tag {
+//     background-color: $orange-red;
+//     color: $white;
+// }
+
+// .fixed__tag {
+//     background-color: $light-green;
+//     color: $black;
+// }
+
+// .rwd__tag {
+//     background-color: $coral-blue;
+//     color: $white;
+// }
+
+// .netflix__tag {
+//     background-color: red;
+//     color: $black;
+// }
+
+// .clone__tag {
+//     background: rgba($blue, 0.5);
+//     color: $black;
+// }
+
+// .sass__tag {
+//     background: rgb(255, 0, 187);
+//     color: $white;
+// }
+
+// .take__tag {
+//     border: 1px solid blue;
+//     color: blue;
+// }
+
+// .prog__tag {
+//     background: blue;
+//     color: $white;
+// }
+
+// .git__tag {
+//     background: rgba(purple, 0.5);
+//     color: $black;
+// }
+
+// .markup__tag {
+//     background: rgba(brown, 0.5);
+//     color: $black;
+// }
+
+// .js__tag {
+//     background: #f8f800;
+//     color: $black;
+// }
+
+// .coding__tag {
+//     border: 1px solid rgba($color: #008b8b, $alpha: 1);
+//     color: #008b8b;
+// }
+
+// .cooper__tag {
+//     background: rgb($light-green, 0.5);
+//     color: $black;
+// }
+
+// .algorithm__tag {
+//     background: rgb(121, 197, 222);
+//     color: $black;
+// }
+
+// .career__tag {
+//     background: $dark-yellow;
+//     color: $black;
+// }
+
+// .interview__tag {
+//     background: rgb(0, 191, 0);
+//     color: $white;
+// }
+
+// .mental__tag {
+//     background: rgb(167, 255, 167);
+//     color: $black;
+// }
+
+// .study__tag {
+//     background: rgba($orange-red, 0.8);
+//     color: $black;
+// }

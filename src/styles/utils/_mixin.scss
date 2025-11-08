@@ -1,0 +1,15 @@
+// custom mixin
+@use './unit' as *;
+@use 'sass:math';
+
+@mixin circle {
+    border-radius: vw(999px);
+}
+
+// modal
+@mixin modal($top: 50%, $left: 50%) {
+    position: fixed;
+    top: $top;
+    left: $left;
+    transform: translate(-50%, -50%);
+}

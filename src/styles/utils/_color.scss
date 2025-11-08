@@ -1,0 +1,55 @@
+//_color.scss
+
+//--기본 색
+$white: #fff;
+$black: #101010;
+$orange: #ff7f50;
+$mint: #42bdcc;
+$blue: #4297cc;
+$red: #b3261e;
+$yellow: #ffcd00;
+$default: #353535;
+$alert: #FF5757;
+
+//--color variation
+
+$greyscale-0: #ffffff;
+$greyscale-100: #fcfcfc;
+$greyscale-200: #f8f8f8;
+$greyscale-300: #f2f2f2;
+$greyscale-400: #ebebeb;
+$greyscale-500: #e1e1e1;
+$greyscale-600: #d4d4d4;
+$greyscale-700: #c5c5c5;
+$greyscale-800: #b2b2b2;
+$greyscale-900: #9c9c9c;
+$greyscale-1000: #828282;
+$greyscale-1100: #646464;
+$greyscale-1200: #444444;
+$greyscale-1300: #222222;
+$greyscale-1400: #000000;
+$foundation-orange-light: #fff2ee;
+$foundation-orange-lighthover: #ffece5;
+$foundation-orange-lightactive: #ffd7c9;
+$foundation-orange-normal: #ff7f50;
+$foundation-orange-normalhover: #e67248;
+$foundation-orange-normalactive: #cc6640;
+$foundation-orange-dark: #bf5f3c;
+$foundation-orange-darkhover: #994c30;
+$foundation-orange-darkactive: #733924;
+$foundation-orange-darker: #592c1c;
+$foundation-mint-light: #ecf8fa;
+$foundation-mint-lighthover: #e3f5f7;
+$foundation-mint-lightactive: #c4ebef;
+$foundation-mint-normal: #42bdcc;
+$foundation-mint-normalhover: #3baab8;
+$foundation-mint-normalactive: #3597a3;
+$foundation-mint-dark: #328e99;
+$foundation-mint-darkhover: #28717a;
+$foundation-mint-darkactive: #1e555c;
+$foundation-mint-darker: #174247;
+
+//--color name 재할당
+
+$main-bg: white;
+$star: #ffc107;

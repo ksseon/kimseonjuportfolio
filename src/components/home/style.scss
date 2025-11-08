@@ -1,0 +1,245 @@
+@use "../../styles/utils" as *;
+
+/* 인트로 중엔 스크롤만 잠금 */
+html.intro-active {
+  overflow: hidden;
+  .about {
+    display: none !important;
+  }
+}
+
+.intro-hero {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  isolation: isolate;
+}
+
+/* 비디오 */
+.visual__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  transition: filter 0.45s ease;
+}
+.intro-active .visual__bg {
+  filter: brightness(0.2) saturate(0.1);
+}
+
+.visual__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  &.overlay--dark {
+    background: radial-gradient(
+      33.33% 33.33% at 50% 66.67%,
+      rgba(12, 19, 25, 0.9) 0%,
+      rgba(0, 9, 17, 0.9) 100%
+    );
+  }
+  &.overlay--intro {
+    background: radial-gradient(50% 50% at 50% 50%, #020e17 0%, #020c14 100%);
+  }
+}
+
+/* INTRO */
+.intro {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  opacity: 1;
+  pointer-events: none;
+  clip-path: inset(0% 0% 0% 0%);
+  &.is-active {
+    opacity: 1;
+  }
+}
+.intro__route {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100vw;
+  height: clamp(240px, 26vh, 320px);
+  overflow: visible;
+}
+.route {
+  fill: none;
+  stroke: #4fa5de;
+  stroke-width: 5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
+
+/* HERO */
+.hero {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  opacity: 0;
+  pointer-events: none;
+  &.is-active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+/* Who am I? */
+.who-center {
+  position: absolute;
+  top: 28%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #4fa5de;
+  text-align: center;
+  font-family: "Cormorant Garamond", "Times New Roman", serif;
+  font-size: 35px;
+  font-weight: 400;
+  letter-spacing: 0.7px;
+}
+
+/* 중앙 대형 헤드라인 */
+.headline-layer {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  z-index: 4;
+  pointer-events: none;
+}
+.intro-hero .hero.is-active .headline-layer .hero__headline {
+  font-size: 60px;
+  line-height: 1.8;
+  margin: 0;
+  width: min(1200px, 92vw);
+  color: #fff;
+  text-align: center;
+  font-family: "Sokcho Bada Dotum";
+  font-weight: 900;
+  letter-spacing: 1.2px;
+}
+
+/* 오른쪽 상단 곡선 */
+.who-right-curve {
+  position: absolute;
+  top: 10%;
+  right: -20px;
+  width: 923px;
+  height: 228px;
+}
+.who-right-path {
+  fill: none;
+  stroke: #4fa5de;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* 코드 파티클 */
+.hero__field {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  overflow: hidden;
+}
+.codebit {
+  position: absolute;
+  color: hsla(var(--h, 205), 80%, 74%, var(--a, 0.35));
+  text-shadow: 0 0 10px hsla(var(--h, 205), 80%, 60%, 0.25);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Courier New",
+    monospace;
+  will-change: transform, opacity;
+}
+
+/* 중앙 그리드 */
+.hero__grid {
+  position: relative;
+  width: min(1200px, 92vw);
+  margin: 500px auto 0;
+  display: flex;
+  gap: 80px;
+  z-index: 5;
+}
+
+/* 좌: 선주; */
+.hero__left {
+  align-self: center;
+  overflow: visible;
+  z-index: 5;
+}
+.hero__name {
+  display: flex;
+  overflow: visible;
+}
+.hero__name-text {
+  font-family: "Sokcho Bada Dotum";
+  font-size: clamp(60px, 8vw, 110px);
+  font-weight: 900;
+  letter-spacing: 10px;
+  background: linear-gradient(90deg, #5433ff 0%, #20bdff 50%, #a5fecb 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1;
+  position: relative;
+  z-index: 6;
+  transform: translateZ(0);
+}
+.hero__caption {
+  margin-top: 22px;
+  color: #c9d0d8;
+  opacity: 0.7;
+  font-family: Pretendard;
+  font-size: 16px;
+  line-height: 1.9;
+}
+
+/* 우: 설명 */
+.hero__right {
+}
+.hero__desc {
+  color: #aeaeae;
+  font-family: Pretendard;
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 1.8;
+  letter-spacing: 0.36px;
+}
+
+.intro-active #header,
+.intro-active #site-header {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(-8px);
+}
+#header,
+#site-header {
+  transition: opacity 0.45s ease, transform 0.45s ease, visibility 0.45s ease;
+}
+
+@media (max-width: 700px) {
+  .intro-hero .hero.is-active .headline-layer .hero__headline {
+    font-size: 36px;
+    width: 90vw;
+  }
+  .hero__grid {
+    flex-direction: column;
+    gap: 24px;
+    width: 92vw;
+    margin: 240px auto 0;
+    padding-left: 16px;
+  }
+  .who-right-curve {
+    width: 64vw;
+  }
+}

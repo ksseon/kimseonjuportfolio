@@ -1,0 +1,172 @@
+@use "../../styles/utils" as *;
+
+.project {
+  width: 100%;
+  background: #e6e6e6;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  overflow: hidden;
+  padding-bottom: 180px;
+  position: relative;
+}
+
+/* 패스선 */
+.project-path {
+  position: absolute;
+  top: -10px;
+  right: 0;
+  transform: translateX(85px);
+  width: 600px;
+  height: auto;
+  z-index: 0;
+  opacity: 1;
+  pointer-events: none;
+
+  path {
+    stroke: #4fa5de;
+    stroke-width: 4;
+    fill: none;
+    stroke-linecap: round;
+  }
+}
+
+/* 헤더 */
+.head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 40px;
+  padding: 0 280px;
+  position: relative;
+  z-index: 2;
+
+  .title {
+    color: #4fa5de;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 35px;
+    font-weight: 400;
+    letter-spacing: 0.7px;
+  }
+
+  .view-all {
+    background: #3195e2;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: 0.3s;
+
+    &:hover {
+      background: #187cc4;
+    }
+  }
+}
+
+/* ==============================
+   🟩 Slider / Card Layout
+============================== */
+.slider {
+  width: 100%;
+  overflow: hidden;
+  padding: 0 280px;
+  transition: all 0.8s ease;
+  position: relative;
+  z-index: 2;
+}
+
+.slider-wrapper {
+  display: flex;
+  gap: 60px;
+  transition: transform 0.4s ease;
+  padding-right: 400px;
+}
+
+/* 카드 아이템 */
+.project-item {
+  width: 480px;
+  flex-shrink: 0;
+  position: relative;
+}
+
+/* 카드 */
+.card {
+  width: 100%;
+  height: 480px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  background: #fff;
+  transition: transform 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform 0.45s ease;
+    background: #fff;
+  }
+
+  &:hover {
+    transform: translateY(-8px);
+  }
+
+  &:hover img {
+    transform: scale(1.05);
+  }
+}
+
+/* 카드 하단 텍스트 */
+.info {
+  cursor: pointer;
+  margin-top: 18px;
+  text-align: left;
+  position: relative;
+  z-index: 3;
+  transition: all 0.3s ease;
+
+  h4 {
+    font-size: 14px;
+    color: #888;
+    margin-bottom: 10px;
+    transition: color 0.3s;
+  }
+
+  h3 {
+    font-size: 30px;
+    font-weight: 600;
+    color: #202020;
+    margin-bottom: 20px;
+    transition: color 0.3s;
+  }
+
+  p {
+    font-size: 15px;
+    color: #333;
+    line-height: 1.5;
+    transition: color 0.3s;
+  }
+}
+
+/* ✅ stack, desc hover 시 title(h3)만 색상 변경 */
+.info:has(h4:hover) h3,
+.info:has(p:hover) h3 {
+  color: #187cc4;
+}
+
+/* 카드 hover 시 이미지 확대 */
+.project-item:hover .card img {
+  transform: scale(1.05);
+  transition: transform 0.45s ease;
+}
+
+/* 카드 hover 시 위로 이동 */
+.project-item:hover .card {
+  transform: translateY(-8px);
+}

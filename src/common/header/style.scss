@@ -1,0 +1,153 @@
+@use "../../styles/utils" as *;
+
+/* 헤더 고정 */
+#site-header {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 40;
+  width: 100%;
+  pointer-events: none; /* 배경 클릭 막고 내부만 클릭 */
+}
+
+#site-header .inner {
+  pointer-events: auto;
+  width: min(1800px, 92vw);
+  margin-inline: auto;
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* 브랜드 */
+#site-header .seonju {
+  margin: 0;
+  font-size: 0; /* 인라인 간격 제거 */
+}
+#site-header .seonju a {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+/* 로고 이미지 (추가) */
+#site-header .seonju .logo {
+  width: 25px;
+  height: 25px;
+}
+
+/* 브랜드 텍스트 */
+#site-header .seonju .name {
+  margin-right: vw(20px);
+  color: #939393;
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px; /* 125% */
+  letter-spacing: 0.32px;
+}
+#site-header .seonju .desc {
+  color: #939393;
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px; /* 125% */
+  letter-spacing: 0.32px;
+}
+
+/* 네비 */
+#site-header .nav {
+  transition: backdrop-filter 0.25s ease, background-color 0.25s ease;
+  border-radius: 10px;
+}
+#site-header .nav.nav--scrolled {
+  backdrop-filter: blur(6px);
+  background: rgba(0, 0, 0, 0.08);
+}
+
+/* 메뉴 리스트 */
+#site-header .nav .menu {
+  display: flex;
+  gap: 28px;
+  list-style: none;
+  margin: 0;
+  padding: 8px 12px;
+}
+
+/* 기본(디폴트) 텍스트만 — 중괄호 없음! */
+#site-header .nav .menu a {
+  position: relative;
+  display: inline-block;
+  padding: 6px 20px; /* 중괄호가 들어올 여백 */
+  color: #939393;
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px; /* 125% */
+  letter-spacing: 0.32px;
+  transition: color 0.18s ease, opacity 0.18s ease;
+}
+
+/* 활성(active) — 중괄호 없이 색만 살짝 강조 */
+#site-header .nav .menu a.active {
+}
+
+/* 호버 시에만 중괄호 생성 */
+#site-header .nav .menu a::before,
+#site-header .nav .menu a::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0;
+  transition: opacity 0.18s ease, transform 0.18s ease;
+  color: #4fa5de; /* 파란 중괄호 */
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0;
+  pointer-events: none;
+}
+
+#site-header .nav .menu a::before {
+  content: "{";
+  left: 6px;
+  transform: translate(-4px, -50%); /* 살짝 안쪽에서 */
+}
+#site-header .nav .menu a::after {
+  content: "}";
+  right: 6px;
+  transform: translate(4px, -50%);
+}
+
+/* 호버 때만 보이게 */
+#site-header .nav .menu a:hover::before,
+#site-header .nav .menu a:hover::after {
+  opacity: 1;
+  transform: translate(0, -50%);
+}
+#site-header .nav .menu a:hover {
+  color: #ffffff;
+  opacity: 0.95;
+}
+
+/* 반응형 */
+@media (max-width: 680px) {
+  #site-header .inner {
+    width: 96vw;
+    padding: 12px 10px;
+  }
+  #site-header .brand .desc {
+    display: none; /* 모바일에선 보조 설명 숨김 */
+  }
+  #site-header .nav .menu {
+    gap: 18px;
+    padding: 8px;
+  }
+}

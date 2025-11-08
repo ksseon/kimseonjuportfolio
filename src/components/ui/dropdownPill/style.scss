@@ -1,0 +1,75 @@
+@use '../../../styles/utils/' as *;
+
+.dropdown-pill {
+    position: relative;
+    display: inline-block;
+
+    &__button {
+        width: vw(140px);
+        height: vw(45px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: vw(8px);
+        background: $greyscale-300;
+        color: $default;
+        border: 0;
+        border-radius: vw(10px);
+        cursor: pointer;
+        @include font-18px;
+
+        transition: 0.2s ease;
+
+        &:hover {
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+        }
+    }
+
+    &__label {
+        white-space: nowrap;
+    }
+    &__icon {
+        display: inline-block;
+        transform: translateY(-1px);
+        transition: 0.2s ease;
+        height: 20px;
+    }
+
+    &.open .dropdown-pill__icon {
+        transform: rotate(180deg);
+    }
+
+    &__menu {
+        position: absolute;
+        top: calc(100% + 6px);
+        left: 0;
+        width: 100%;
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 10px 24px rgba(0, 0, 0, 0.1);
+        padding: 6px;
+        margin: 0;
+        list-style: none;
+        z-index: 30;
+    }
+
+    &__item {
+        padding: 10px 12px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: 500;
+        color: #333;
+        outline: none;
+
+        &:hover,
+        &:focus {
+            background: rgba($mint, 0.1);
+        }
+        &.is-selected {
+            background: rgba($mint, 0.15);
+            color: $mint;
+            font-weight: 700;
+        }
+    }
+}

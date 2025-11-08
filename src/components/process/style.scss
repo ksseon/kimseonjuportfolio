@@ -1,0 +1,151 @@
+@use "../../styles/utils" as *;
+
+.work {
+  width: 100%;
+  position: relative;
+  background-color: #e6e6e6;
+  padding: 340px 0 20px;
+  overflow: hidden; // ✅
+}
+
+/* 패스선 */
+.process-path {
+  position: absolute;
+  right: 0;
+  top: 0;
+  transform: translateX(40px);
+  width: 600px;
+  height: auto;
+  z-index: 0;
+  opacity: 0.9;
+  pointer-events: none;
+  overflow-x: hidden;
+
+  path {
+    stroke: #4fa5de;
+    stroke-width: 4;
+    fill: none;
+    stroke-linecap: round;
+  }
+}
+
+/*Process Work */
+.rtitle {
+  position: absolute;
+  left: 0;
+  top: 5%;
+  font-size: 140px;
+  font-family: "Cormorant Infant", serif;
+  font-weight: 700;
+  color: rgba(100, 100, 100, 0.25);
+  z-index: 1;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+/* 카드  */
+.review-wrp {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 80px 80px;
+  position: relative;
+  z-index: 5;
+  max-width: 1000px;
+  margin: 0 auto;
+  margin-top: 160px;
+}
+.review {
+  width: 360px;
+  height: 280px;
+  background: #fff;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.3s ease;
+}
+
+/* 카드 헤더 */
+.rhead {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  strong {
+    font-size: 18px;
+    color: #4fa5de;
+  }
+
+  .step {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    font-size: 14px;
+    color: #858585;
+    font-weight: 300;
+
+    p {
+      color: #4fa5de;
+      font-size: 18px;
+    }
+  }
+}
+
+/* 카드 본문 */
+.content {
+  color: #333;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 140%;
+  margin-top: 8px;
+}
+
+/* 이미지 영역 */
+.pic {
+  margin-top: 10px;
+  width: 100%;
+  height: 100px;
+  background: #fff;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    transition: transform 0.4s ease;
+    &:hover {
+      transform: scale(1.08);
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .rtitle {
+    font-size: 120px;
+  }
+
+  .review-wrp {
+    flex-direction: column;
+    align-items: center;
+    gap: 60px;
+  }
+
+  .review {
+    width: 80%;
+    height: auto;
+  }
+
+  .pic {
+    height: 140px;
+  }
+
+  .process-path {
+    width: 85%;
+  }
+}

@@ -1,0 +1,294 @@
+@use './../utils' as *;
+
+html.is-active {
+    overflow-y: hidden;
+}
+
+#header {
+    z-index: 10000;
+    width: 100vw;
+    top: 0;
+
+    .inner {
+        width: vw(1705px);
+
+        height: vw(95px);
+    }
+    h1 {
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        display: flex;
+        align-items: center;
+
+        a {
+            height: vw(33px);
+
+            img {
+                width: 100%;
+                height: vw(33px);
+            }
+        }
+    }
+
+    .nav {
+        // border: 1px solid #000;
+        width: 100%;
+        box-sizing: border-box;
+        height: 95px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        ul {
+            display: flex;
+            gap: 90px;
+            &.nav-menu {
+                li {
+                    &:nth-child(2) {
+                        &::after {
+                            content: '';
+                            background-image: url('/images/icon/new.png');
+                            background-repeat: no-repeat;
+                            width: 32px;
+                            height: 14px;
+                            position: absolute;
+                            right: 20px;
+                            top: -12px;
+                        }
+                    }
+                }
+            }
+            li {
+                position: relative;
+                &:hover {
+                    a {
+                        color: $mint;
+                    }
+                    img {
+                        filter: saturate(1) brightness(1);
+                    }
+                }
+
+                a {
+                    display: flex;
+                    align-items: center;
+                    @include font-18px-M;
+                    transition: 0.1s;
+                    color: $white;
+                    background-color: transparent;
+
+                    img {
+                        filter: saturate(0) brightness(2);
+                        margin-right: 10px;
+                    }
+                }
+            }
+            &.my-menu {
+                gap: 30px;
+                position: absolute;
+                right: 0;
+                top: 50%;
+                transform: translateY(-50%);
+                display: flex;
+                align-items: center;
+                &:hover {
+                    li {
+                        color: $mint;
+                    }
+                }
+                li {
+                    margin: 0;
+                    display: flex;
+                    &.line {
+                        a {
+                            &:last-child {
+                                padding-left: vw(20px);
+                                position: relative;
+                                &::after {
+                                    position: absolute;
+                                    content: '';
+                                    background-color: $white;
+                                    width: vw(1px);
+                                    height: 80%;
+                                    left: 0;
+                                    top: 50%;
+                                    transform: translateY(-50%);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &.bg-on {
+        /* 헤더가 비투명 상태일 때 링크 색만 다크(그레이)로 변경 */
+        // box-shadow: 0 6px 18px rgba(20, 20, 20, 0.06);
+        -webkit-backdrop-filter: blur(6px);
+        backdrop-filter: blur(6px);
+
+        .nav {
+            ul {
+                li {
+                    a {
+                        color: $greyscale-1100;
+                        transition: color 0.14s ease;
+                        img {
+                            filter: saturate(0) brightness(0.6);
+                            margin-right: 10px;
+                        }
+                    }
+                    &:hover {
+                        a {
+                            color: $mint;
+                        }
+                        img {
+                            filter: saturate(1) brightness(1);
+                        }
+                    }
+                }
+
+                /* my-menu의 마지막 아이템 구분선 색도 그레이로 */
+                &.my-menu {
+                    li {
+                        &:not(.none-line) {
+                            a {
+                                &:last-child {
+                                    &::after {
+                                        background-color: $greyscale-1100;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .mobile-menu {
+        display: none;
+    }
+
+    @include tablet {
+        @include mobile {
+            .inner {
+                width: 100%;
+                margin: 0;
+                height: 17.95vw; // 70px
+                padding: 0 5.13vw; // 20px
+                display: flex;
+                justify-content: space-between;
+            }
+
+            h1 {
+                position: relative;
+                width: 22.31vw; // 87px
+                height: 5.13vw; // 20px
+
+                a {
+                    width: 100%;
+                    height: 100%;
+                    position: relative;
+
+                    img {
+                        position: absolute;
+                        left: 50%;
+                        top: 50%;
+                        transform: translate(-50%, -50%);
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+            }
+
+            .nav {
+                display: none;
+            }
+
+            .mobile-menu {
+                &-wrap {
+                    height: 100%;
+                    display: flex;
+                    align-items: center;
+                }
+                display: block;
+                width: 5.13vw; // 20px
+                height: 4.1vw; // 16px
+            }
+        }
+    }
+}
+
+#floating-btn {
+    opacity: 0;
+    position: fixed;
+    top: vw(760px);
+    right: vw(65px);
+    width: vw(40px);
+    height: vw(80px);
+    background-color: $greyscale-0;
+    z-index: 50000;
+    @include circle;
+    .floating-btn-wrap {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        box-shadow: 0 vw(2px) vw(8px) 0 rgba($default, 0.2);
+        @include circle;
+        transition: 0.8s, ease;
+        cursor: pointer;
+
+        &::after {
+            position: absolute;
+            content: '';
+            background-color: $greyscale-500;
+            width: 100%;
+            height: 1px;
+            left: 50%;
+            top: 50%;
+            transform: translateX(-50%);
+        }
+        button {
+            width: 100%;
+            height: 50%;
+            position: relative;
+            border: none;
+            font-size: rem(20px);
+        }
+
+        .floating-btn {
+            &-top,
+            &-bottom {
+                &:hover,
+                &:active {
+                    box-shadow: 0 vw(2px) vw(8px) 0 rgba($default, 0.5);
+                    p {
+                        color: $mint;
+                        transform: scale(2);
+                        filter: brightness(0.6);
+                    }
+                }
+            }
+            &-top {
+                border-radius: vw(100px) vw(100px) 0 0;
+            }
+            &-bottom {
+                border-radius: 0 0 vw(100px) vw(100px);
+            }
+        }
+    }
+    &.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+    }
+    @include tablet {
+        @include mobile {
+            display: none;
+        }
+    }
+}

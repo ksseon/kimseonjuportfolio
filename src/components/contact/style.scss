@@ -1,0 +1,130 @@
+@use "../../styles/utils" as *;
+
+.contact {
+  width: 100%;
+  height: 400px;
+  background-color: #0a131b;
+  color: #d8e3ef;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /*  패스선 */
+  .contact-line {
+    position: absolute;
+    top: -10px;
+    left: -80px;
+    width: 100%;
+    height: 200px;
+    z-index: 0;
+    pointer-events: none;
+
+    path {
+      stroke: #7fc3ff;
+      stroke-width: 3.5;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      opacity: 1;
+    }
+  }
+
+  .contact-inner {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    z-index: 2;
+    opacity: 0;
+    transform: translateY(60px);
+  }
+
+  /* 왼쪽 텍스트 */
+  .contact-left {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8em;
+    margin-top: 25px;
+  }
+
+  .contact-sub {
+    color: #4fa5de;
+    font-family: "Cormorant Garamond", "Times New Roman", serif;
+    font-size: 35px;
+    font-weight: 400;
+    letter-spacing: 0.7px;
+  }
+
+  .contact-title {
+    color: #dcdcdc;
+    font-size: 35px;
+    font-weight: 300;
+    line-height: 150%;
+    letter-spacing: 0.8px;
+  }
+
+  .contact-info {
+    color: #b5b5b5;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 150%;
+    letter-spacing: 0.36px;
+    li {
+      letter-spacing: 0.3px;
+      transition: color 0.3s ease;
+      &:hover {
+        color: #7fc3ff;
+      }
+    }
+  }
+
+  /* 오른쪽 로고 */
+  .contact-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 60px;
+    text-align: right;
+
+    img {
+      width: 100px;
+      height: auto;
+      object-fit: contain;
+      opacity: 0.9;
+    }
+
+    p {
+      color: #b5b5b5;
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 150%;
+      letter-spacing: 0.36px;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    height: auto;
+    padding: 3em 1.5em;
+
+    .contact-inner {
+      flex-direction: column;
+      gap: 2.5em;
+      text-align: center;
+    }
+
+    .contact-left,
+    .contact-right {
+      align-items: center;
+      text-align: center;
+    }
+
+    .contact-line {
+      height: 120px;
+    }
+  }
+}
