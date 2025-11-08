@@ -54,7 +54,7 @@ const projects = [
     imgSlides: ["/images/Olivia-Dean_1.png", "/images/Olivia-Dean_2.png"],
     github: "https://github.com/ksseon/olivia-dean",
     figma: "https://www.figma.com/file/xxxx/oliviadean",
-    site: "https://oliviadean.vercel.app/",
+    site: "https://olivia-dean.vercel.app/",
     tools: "React, Styled-Components, Framer Motion, Figma",
     pages:
       "메인, 앨범 상세, 영상 갤러리, 투어 일정 | 기여도: 디자인 90%, 코딩 100%",
