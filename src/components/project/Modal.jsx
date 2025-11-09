@@ -1,19 +1,31 @@
 import { useEffect } from "react";
+import { createPortal } from "react-dom";
 import "./modal.scss";
 
 export default function Modal({ project, onClose }) {
   if (!project) return null;
+  let modalRoot = document.getElementById("modal-root");
+  if (!modalRoot) {
+    modalRoot = document.createElement("div");
+    modalRoot.id = "modal-root";
+    document.body.appendChild(modalRoot);
+  }
 
-  // 모달 열릴 때 body 스크롤 잠금 / 닫힐 때 복구
   useEffect(() => {
-    const prev = document.body.style.overflow;
+    const prevOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
+
+    const header = document.querySelector("#site-header");
+    if (header) header.style.pointerEvents = "none";
+
+    // ✅ cleanup
     return () => {
-      document.body.style.overflow = prev || "auto";
+      document.body.style.overflow = prevOverflow || "auto";
+      if (header) header.style.pointerEvents = "auto";
     };
   }, []);
 
-  return (
+  return createPortal(
     <div className="modal" onClick={onClose}>
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
         <button className="close" onClick={onClose}>
@@ -25,21 +37,51 @@ export default function Modal({ project, onClose }) {
           <h2>{project.title}</h2>
           <p className="desc">{project.desc}</p>
 
+          {/* 프로젝트별 버튼 */}
           <div className="modal-links">
-            <a href={project.github} target="_blank" rel="noreferrer">
-              Github ↗
-            </a>
-            <a href={project.figma} target="_blank" rel="noreferrer">
-              Figma ↗
-            </a>
-            <a
-              href={project.site}
-              target="_blank"
-              rel="noreferrer"
-              className="primary"
-            >
-              View Web Page ↗
-            </a>
+            {/* Bugs Music*/}
+            {project.title === "Bugs Music" ? (
+              <>
+                <a href={project.figma} target="_blank" rel="noreferrer">
+                  Figma ↗
+                </a>
+                {project.plan && (
+                  <a href={project.plan} target="_blank" rel="noreferrer">
+                    기획서 ↗
+                  </a>
+                )}
+              </>
+            ) : project.title === "NSSMART" ? (
+              // NSSMART
+              <>
+                <a href={project.figma} target="_blank" rel="noreferrer">
+                  Figma ↗
+                </a>
+              </>
+            ) : (
+              // 나머지 프로젝트
+              <>
+                <a href={project.github} target="_blank" rel="noreferrer">
+                  Github ↗
+                </a>
+                <a href={project.figma} target="_blank" rel="noreferrer">
+                  Figma ↗
+                </a>
+                {project.plan && (
+                  <a href={project.plan} target="_blank" rel="noreferrer">
+                    기획서 ↗
+                  </a>
+                )}
+                <a
+                  href={project.site}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="primary"
+                >
+                  View Web Page ↗
+                </a>
+              </>
+            )}
           </div>
 
           <div className="info-section">
@@ -58,7 +100,6 @@ export default function Modal({ project, onClose }) {
           </div>
         </div>
 
-        {/* 이미지 2개 고정 */}
         <div className="modal-slider two-images">
           {project.imgSlides?.slice(0, 2).map((img, i) => (
             <img
@@ -69,6 +110,7 @@ export default function Modal({ project, onClose }) {
           ))}
         </div>
       </div>
-    </div>
+    </div>,
+    modalRoot
   );
 }

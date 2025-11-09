@@ -2,7 +2,6 @@ import { useRef, useEffect, useState } from "react";
 import Modal from "./Modal";
 import "./project.scss";
 
-/* ===== 전체 프로젝트 데이터 ===== */
 const projects = [
   {
     title: "RoadOn",
@@ -12,6 +11,7 @@ const projects = [
     imgSlides: ["/images/RoadOn_1.png", "/images/RoadOn_2.png"],
     github: "https://github.com/Hwanyeong815/RoadOn_Project.git",
     figma: "https://www.figma.com/file/xxxx/roadon",
+    plan: "https://www.notion.so/roadon-plan",
     site: "https://roadonproject.vercel.app/",
     tools: "React, TypeScript, Zustand, GSAP, SCSS, Swiper, Figma, ChatGPT",
     pages:
@@ -40,6 +40,7 @@ const projects = [
     imgSlides: ["/images/LUSH_1.png", "/images/LUSH_2.png"],
     github: "https://github.com/SongTam-tam/lush.git",
     figma: "https://www.figma.com/file/xxxx/lush",
+    plan: "https://www.notion.so/lush-plan",
     site: "https://lush-navy.vercel.app/",
     tools: "React, GSAP, SCSS, Swiper, Figma, ChatGPT",
     pages:
@@ -124,6 +125,7 @@ const projects = [
     github: "https://github.com/ksseon/bugs-prototype",
     figma:
       "https://www.figma.com/slides/rJsFjnKBoYdItd4FXMXeL2/Bugs----%EA%B8%B0%ED%9A%8D%EC%84%9C?node-id=55-6444&t=pineWYnyGBVVa7SV-1",
+    plan: "https://www.notion.so/bugs-plan",
     site: "https://www.figma.com/proto/xxxx/bugs",
     tools: "Figma, Prototyping, UX Writing",
     pages: "로그인, 홈, 플레이어, 플레이리스트, 내 앨범 | 기여도: 디자인 100%",
@@ -152,7 +154,6 @@ export default function Project() {
   const [activeProject, setActiveProject] = useState(null);
   const scrollX = useRef(0);
 
-  /* ===== 패스선 그리기 ===== */
   useEffect(() => {
     const path = sectionRef.current?.querySelector("path");
     if (!path) return;
@@ -169,7 +170,7 @@ export default function Project() {
     return () => io.disconnect();
   }, []);
 
-  /* ===== 가로 스크롤 (끝까지) ===== */
+  /* 가로 스크롤 ===== */
   useEffect(() => {
     const wrapper = wrapperRef.current;
     const slider = sliderRef.current;
@@ -183,9 +184,8 @@ export default function Project() {
       const delta = e.deltaY;
       const contentWidth = wrapper.scrollWidth;
       const containerWidth = slider.clientWidth;
-      const maxScroll = Math.max(0, contentWidth - containerWidth + 560); // 🔹 살짝 여유를 줌
+      const maxScroll = Math.max(0, contentWidth - containerWidth + 560);
 
-      // 끝까지 가면 페이지 스크롤 허용
       if (
         (scrollX.current <= 0 && delta < 0) ||
         (scrollX.current >= maxScroll && delta > 0)

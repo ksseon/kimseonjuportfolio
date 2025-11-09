@@ -2,8 +2,6 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 
 const HEADER_HEIGHT = 64;
-
-// 메뉴별 타깃 셀렉터( id 우선, 없으면 class )
 const TARGETS = {
   home: "#visual, .visual",
   about: "#about, .about",
@@ -18,23 +16,29 @@ export default function NavBar() {
   const [activeKey, setActiveKey] = useState("home");
   const ioRef = useRef(null);
 
-  // 헤더 배경 on/off
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 10);
+    const onScroll = () => {
+      const isScrolled = window.scrollY > 10;
+      setScrolled(isScrolled);
+
+      const header = document.getElementById("site-header");
+      if (header) {
+        if (isScrolled) header.classList.add("scrolled");
+        else header.classList.remove("scrolled");
+      }
+    };
+
     onScroll();
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // 타깃 엘리먼트 찾기(메뉴 키 → DOM)
   const getTargetEl = (key) => {
     const selector = TARGETS[key];
     if (!selector) return null;
-    const el = document.querySelector(selector);
-    return el || null;
+    return document.querySelector(selector);
   };
 
-  // 부드러운 스크롤
   const smoothScrollTo = (el) => {
     if (!el) return;
     const top =
@@ -42,7 +46,6 @@ export default function NavBar() {
     window.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
   };
 
-  // 섹션 active 상태 감지 (id/class 모두 커버)
   useEffect(() => {
     if (ioRef.current) {
       ioRef.current.disconnect();
@@ -75,7 +78,6 @@ export default function NavBar() {
     return () => io.disconnect();
   }, [pathname]);
 
-  // 공통 이동 함수: 루트가 아니면 루트로 이동 후 스크롤
   const go = (key) => (e) => {
     e.preventDefault();
     const doScroll = () => {

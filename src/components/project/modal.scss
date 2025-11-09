@@ -2,29 +2,30 @@
 
 .modal {
   position: fixed;
-  inset: 0;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 1000;
   background: rgba(255, 255, 255, 0.3);
   backdrop-filter: blur(16px);
   animation: fadeIn 0.3s ease;
-  pointer-events: all;
-  z-index: 9999;
+  z-index: 99999; /* ✅ 헤더보다 훨씬 높게 */
+  pointer-events: auto;
 
   .modal-content {
+    position: relative;
     background: #fff;
     border-radius: 28px;
     width: 90%;
     max-width: 1000px;
     padding: 60px 80px;
-    position: relative;
-    animation: pop 0.35s ease-out;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-    z-index: 10000;
+    animation: pop 0.35s ease-out;
+    z-index: 100000; /* ✅ 닫기 버튼 클릭 보장 */
 
-    /* 닫기 버튼 */
     .close {
       position: absolute;
       top: 24px;
@@ -35,14 +36,13 @@
       color: #777;
       cursor: pointer;
       transition: color 0.2s;
-      z-index: 10000;
+      z-index: 100001;
 
       &:hover {
         color: #000;
       }
     }
 
-    /* 상단 정보 */
     .modal-top {
       margin-bottom: 60px;
 
@@ -66,7 +66,6 @@
         margin-bottom: 30px;
       }
 
-      /* 링크 버튼들 */
       .modal-links {
         display: flex;
         gap: 14px;
@@ -100,7 +99,6 @@
         }
       }
 
-      /* 툴 / 페이지 / 타입 섹션 */
       .info-section {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -128,7 +126,6 @@
       }
     }
 
-    /* 이미지 슬라이더 */
     .modal-slider {
       position: relative;
       width: 100%;
@@ -145,7 +142,6 @@
       }
     }
 
-    /* 이미지 2장 */
     .modal-slider.two-images {
       display: flex;
       gap: 24px;
@@ -153,7 +149,7 @@
       align-items: center;
 
       img {
-        width: 100%;
+        width: 48%;
         border-radius: 20px;
         object-fit: cover;
         box-shadow: 0 6px 30px rgba(0, 0, 0, 0.1);
@@ -175,7 +171,6 @@
     opacity: 1;
   }
 }
-
 @keyframes pop {
   from {
     transform: scale(0.96);
