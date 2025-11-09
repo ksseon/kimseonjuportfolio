@@ -10,9 +10,9 @@ const projects = [
     desc: "TypeScript를 활용해 영화 속 장면을 실제 여행지와 연결하는 시네마틱 여행 사이트 프로젝트입니다.",
     thumbnail: "/images/RoadOn_thumb.png",
     imgSlides: ["/images/RoadOn_1.png", "/images/RoadOn_2.png"],
-    github: "https://github.com/ksseon/roadon",
+    github: "https://github.com/Hwanyeong815/RoadOn_Project.git",
     figma: "https://www.figma.com/file/xxxx/roadon",
-    site: "https://ksseon-roadon.vercel.app/",
+    site: "https://roadonproject.vercel.app/",
     tools: "React, TypeScript, Zustand, GSAP, SCSS, Swiper, Figma, ChatGPT",
     pages:
       "메인, 항공 예약, 상세 페이지, 투어 리스트 | 기여도: 기획 40%, 디자인 80%, 코딩 30%",
@@ -122,7 +122,8 @@ const projects = [
     thumbnail: "/images/Bugs_thumb.png",
     imgSlides: ["/images/Bugs-Music_1.png", "/images/Bugs-Music_2.png"],
     github: "https://github.com/ksseon/bugs-prototype",
-    figma: "https://www.figma.com/file/xxxx/bugs",
+    figma:
+      "https://www.figma.com/slides/rJsFjnKBoYdItd4FXMXeL2/Bugs----%EA%B8%B0%ED%9A%8D%EC%84%9C?node-id=55-6444&t=pineWYnyGBVVa7SV-1",
     site: "https://www.figma.com/proto/xxxx/bugs",
     tools: "Figma, Prototyping, UX Writing",
     pages: "로그인, 홈, 플레이어, 플레이리스트, 내 앨범 | 기여도: 디자인 100%",
