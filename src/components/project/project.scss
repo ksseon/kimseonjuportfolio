@@ -144,6 +144,9 @@
     color: #202020;
     margin-bottom: 20px;
     transition: color 0.3s;
+    &:hover {
+      color: #187cc4;
+    }
   }
 
   p {
@@ -154,7 +157,6 @@
   }
 }
 
-/* ✅ stack, desc hover 시 title(h3)만 색상 변경 */
 .info:has(h4:hover) h3,
 .info:has(p:hover) h3 {
   color: #187cc4;
