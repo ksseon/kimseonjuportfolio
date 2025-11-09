@@ -36,8 +36,6 @@ export default function Modal({ project, onClose }) {
           <span className="stack">{project.stack}</span>
           <h2>{project.title}</h2>
           <p className="desc">{project.desc}</p>
-
-          {/* ===== 프로젝트별 버튼 ===== */}
           <div className="modal-links">
             {project.title === "Bugs Music" ? (
               <>
@@ -49,6 +47,16 @@ export default function Modal({ project, onClose }) {
                 {project.plan && (
                   <a href={project.plan} target="_blank" rel="noreferrer">
                     기획서 ↗
+                  </a>
+                )}
+                {project.site && (
+                  <a
+                    href={project.site}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="primary"
+                  >
+                    Prototype ↗
                   </a>
                 )}
               </>
@@ -114,7 +122,6 @@ export default function Modal({ project, onClose }) {
             )}
           </div>
 
-          {/* ===== Info Section (툴 / 페이지 / 타입) ===== */}
           <div className="info-section">
             <div className="info-box">
               <h5>Tools</h5>

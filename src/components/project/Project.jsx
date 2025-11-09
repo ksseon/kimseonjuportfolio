@@ -68,7 +68,8 @@ const projects = [
     thumbnail: "/images/Hyundai-E&C_thumb.png",
     imgSlides: ["/images/Hyundai-E&C_1.png", "/images/Hyundai-E&C_2.png"],
     github: "https://github.com/ksseon/hyundai-enc",
-    figma: "https://www.figma.com/file/xxxx/hyundai",
+    figma:
+      "https://www.figma.com/design/oafY4C1yidKzddwKGW999q/%ED%98%84%EB%8C%80%EA%B1%B4%EC%84%A4?node-id=0-1&t=tPFaV0bLgyKQA2zG-1",
     site: "https://hyundaienc-redesign.vercel.app/",
     tools: "HTML·CSS·JavaScript·Figma",
     pages: "메인·사업소개·채용·뉴스·공지사항",
@@ -93,7 +94,8 @@ const projects = [
     thumbnail: "/images/Kepco_thumb.png",
     imgSlides: ["/images/Kepco_1.png", "/images/Kepco_2.png"],
     github: "https://github.com/ksseon/kepco",
-    figma: "https://www.figma.com/file/xxxx/kepco",
+    figma:
+      "https://www.figma.com/design/RnFfvWPa2SHIs4JKTGIbhL/2%EC%B0%A8-%EB%AF%B8%EB%8B%88%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EB%A6%AC%EB%94%94%EC%9E%90%EC%9D%B8?node-id=9-5&t=9Jquo9DmOdQWE7Tq-1",
     site: "https://kepco-sigma.vercel.app/",
     tools: "HTML·CSS·JavaScript·Figma",
     pages: "코딩 및 디자인 : 회사소개·지식센터·민원센터",
@@ -119,10 +121,11 @@ const projects = [
     imgSlides: ["/images/Bugs-Music_1.png", "/images/Bugs-Music_2.png"],
     github: "https://github.com/ksseon/bugs-prototype",
     figma:
-      "https://www.figma.com/slides/rJsFjnKBoYdItd4FXMXeL2/Bugs----%EA%B8%B0%ED%9A%8D%EC%84%9C?node-id=55-6444&t=pineWYnyGBVVa7SV-1",
+      "https://www.figma.com/design/Jdc21fIAy5WfNBax4XpG1D/%EC%9E%84%EB%8F%84%ED%9D%AC-%EA%B9%80%EC%9C%A4%EC%95%84-%EA%B9%80%EC%84%A0%EC%A3%BC---%EB%B2%85%EC%8A%A4%EB%AE%A4%EC%A7%81-%EC%95%B1-%EB%A6%AC%EB%94%94%EC%9E%90%EC%9D%B8---%EC%B5%9C%EC%A2%85?node-id=180-7628&t=C51ItVPYAeE1qGcw-1",
     plan: "https://www.figma.com/deck/rJsFjnKBoYdItd4FXMXeL2/Bugs----%EA%B8%B0%ED%9A%8D%EC%84%9C?node-id=32-51&viewport=-1899%2C-26926%2C0.8&t=OdIVomjcHNQGllVt-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1",
+    site: "https://www.figma.com/proto/Jdc21fIAy5WfNBax4XpG1D/%EC%9E%84%EB%8F%84%ED%9D%AC-%EA%B9%80%EC%9C%A4%EC%95%84-%EA%B9%80%EC%84%A0%EC%A3%BC---%EB%B2%85%EC%8A%A4%EB%AE%A4%EC%A7%81-%EC%95%B1-%EB%A6%AC%EB%94%94%EC%9E%90%EC%9D%B8---%EC%B5%9C%EC%A2%85?page-id=190%3A2622&node-id=2037-5117&p=f&viewport=1150%2C397%2C0.08&t=jYULBe0xh2FAKy7R-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=2037%3A5490&show-proto-sidebar=1",
     tools: "Figma",
-    pages: "스플래시·홈·로그인·회원가입",
+    pages: "스플래시·메인·로그인·회원가입",
     type: "Team Project",
   },
   {
