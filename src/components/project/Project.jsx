@@ -38,9 +38,9 @@ const projects = [
     desc: "러쉬의 감정 케어 철학을 K-내추럴 감성으로 재해석한 리디자인 프로젝트입니다.",
     thumbnail: "/images/LUSH_thumb.png",
     imgSlides: ["/images/LUSH_1.png", "/images/LUSH_2.png"],
-    github: "https://github.com/ksseon/lush-project",
+    github: "https://github.com/SongTam-tam/lush.git",
     figma: "https://www.figma.com/file/xxxx/lush",
-    site: "https://lush-korea.vercel.app/",
+    site: "https://lush-navy.vercel.app/",
     tools: "React, GSAP, SCSS, Swiper, Figma, ChatGPT",
     pages:
       "메인, 제품 상세, 스파, 이벤트, 스토어 | 기여도: 기획 30%, 디자인 60%, 코딩 40%",
