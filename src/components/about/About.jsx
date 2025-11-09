@@ -105,8 +105,8 @@ const About = () => {
         if (!e.isIntersecting) return;
         const tl = gsap.timeline({ defaults: { ease: "power2.out" } });
 
-        tl.to(path, { strokeDashoffset: 0, duration: 2.6 }) // 곡선 그리기
-          .from(textRef.current, { autoAlpha: 0, duration: 0.5 }, "-=0.4") // 텍스트 페이드
+        tl.to(path, { strokeDashoffset: 0, duration: 2.6 })
+          .from(textRef.current, { autoAlpha: 0, duration: 0.5 }, "-=0.4")
           .from(
             photoRef.current,
             { autoAlpha: 0, y: 14, duration: 0.5 },

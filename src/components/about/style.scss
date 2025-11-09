@@ -1,11 +1,9 @@
 @use "../../styles/utils" as *;
 
-/* 인트로 중엔 About 숨김 */
 html.intro-active .about {
   display: none !important;
 }
 
-/* ===== About 섹션 ===== */
 .about {
   position: relative;
   background: radial-gradient(50% 50% at 50% 50%, #020e17 0%, #020c14 100%);
@@ -13,7 +11,6 @@ html.intro-active .about {
   padding: 120px 24px 160px;
   overflow: hidden;
 
-  /* 상단 장식 곡선 */
   &__curve {
     position: absolute;
     left: -40px;
@@ -42,7 +39,6 @@ html.intro-active .about {
     font-weight: 300;
   }
 
-  /* 레이아웃 */
   &__wrap {
     max-width: 1000px;
     margin: 0 auto;
@@ -52,13 +48,11 @@ html.intro-active .about {
     align-items: flex-start;
   }
 
-  /* 프로필 사진 */
   &__photo {
     display: inline-block;
     will-change: transform, filter;
     margin: vw(40px) 0 0 vw(100px);
-    transform-origin: 50% 50%; /* 중앙 기준 - 스핀 느낌 방지 */
-    /* transform/transition 제거: GSAP가 전담 */
+    transform-origin: 50% 50%;
     img {
       display: block;
       width: vw(330px);
@@ -143,8 +137,6 @@ html.intro-active .about {
       min-width: 0;
     }
   }
-
-  /* ===== My Skill ===== */
   &__skill--global {
     margin-top: 40px;
     text-align: center;
@@ -168,7 +160,6 @@ html.intro-active .about {
       position: relative;
       padding-bottom: 80px;
 
-      /* 페이지네이션 */
       .swiper-pagination {
         display: flex;
         justify-content: center;
@@ -253,7 +244,6 @@ html.intro-active .about {
     }
   }
 
-  /* 배지 (다른 곳에서 쓸 때 대비) */
   .badge {
     padding: 10px 16px;
     border-radius: 999px;
@@ -266,7 +256,6 @@ html.intro-active .about {
   }
 }
 
-/* 반응형 */
 @media (max-width: 768px) {
   .about {
     padding: 80px 16px 120px;

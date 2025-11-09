@@ -12,7 +12,7 @@
   background: rgba(255, 255, 255, 0.3);
   backdrop-filter: blur(16px);
   animation: fadeIn 0.3s ease;
-  z-index: 99999; /* ✅ 헤더보다 훨씬 높게 */
+  z-index: 99999;
   pointer-events: auto;
 
   .modal-content {
@@ -21,15 +21,15 @@
     border-radius: 28px;
     width: 90%;
     max-width: 1000px;
-    padding: 60px 80px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    padding: 70px 80px; /* ✅ 상단 여백 살짝 늘림 */
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
     animation: pop 0.35s ease-out;
-    z-index: 100000; /* ✅ 닫기 버튼 클릭 보장 */
+    z-index: 100000;
 
     .close {
       position: absolute;
-      top: 24px;
-      right: 30px;
+      top: 28px;
+      right: 34px;
       background: none;
       border: none;
       font-size: 28px;
@@ -44,32 +44,33 @@
     }
 
     .modal-top {
-      margin-bottom: 60px;
+      margin-bottom: 70px;
 
       .stack {
         display: inline-block;
         font-size: 15px;
-        color: #555;
-        margin-bottom: 10px;
+        color: #666;
+        margin-bottom: 12px; /* ✅ 스택 아래 여백 증가 */
       }
 
       h2 {
-        font-size: 40px;
+        font-size: 42px;
         font-weight: 700;
-        margin-bottom: 14px;
+        color: #111;
+        margin-bottom: 16px; /* ✅ 제목 아래 간격 확대 */
       }
 
       p {
         font-size: 17px;
         color: #444;
-        line-height: 1.7;
-        margin-bottom: 30px;
+        line-height: 1.75;
+        margin-bottom: 40px; /* ✅ 설명과 버튼 사이 여유 */
       }
 
       .modal-links {
         display: flex;
-        gap: 14px;
-        margin-bottom: 40px;
+        gap: 16px;
+        margin-bottom: 56px;
         flex-wrap: wrap;
 
         a {
@@ -99,27 +100,46 @@
         }
       }
 
+      /* ✅ info-section : 균등 + 시각적 여백 + 줄바꿈 구조 */
       .info-section {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-        gap: 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        text-align: left;
+        gap: 60px;
+        margin-top: 40px;
+        border-top: 1px solid #eee;
+        padding-top: 32px;
 
         .info-box {
+          flex: 1 1 0;
+          width: 33.333%;
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          text-align: left;
+
           h5 {
-            font-size: 15px;
-            font-weight: 600;
-            color: #666;
-            margin-bottom: 10px;
+            font-size: 14px;
+            color: #a0a0a0;
+            font-weight: 500;
+            letter-spacing: 0.3px;
           }
 
           p {
             font-size: 15px;
-            line-height: 1.7;
-            color: #333;
+            line-height: 1.9;
+            color: #222;
+            word-break: keep-all;
+            overflow-wrap: break-word;
+            white-space: pre-line; /* ✅ 코딩/디자인 줄바꿈 정확히 반영 */
 
-            b {
-              font-weight: 600;
-              color: #111;
+            .contribution {
+              display: block;
+              margin-top: 8px;
+              font-size: 13px;
+              color: #666;
+              line-height: 1.6;
             }
           }
         }
@@ -132,19 +152,20 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      margin-top: 50px;
 
       img {
         width: 100%;
         border-radius: 20px;
         max-height: 520px;
         object-fit: contain;
-        box-shadow: 0 6px 30px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 6px 30px rgba(0, 0, 0, 0.08);
       }
     }
 
     .modal-slider.two-images {
       display: flex;
-      gap: 24px;
+      gap: 28px;
       justify-content: center;
       align-items: center;
 
@@ -152,7 +173,7 @@
         width: 48%;
         border-radius: 20px;
         object-fit: cover;
-        box-shadow: 0 6px 30px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 6px 30px rgba(0, 0, 0, 0.08);
         transition: transform 0.3s ease;
 
         &:hover {
@@ -171,6 +192,7 @@
     opacity: 1;
   }
 }
+
 @keyframes pop {
   from {
     transform: scale(0.96);

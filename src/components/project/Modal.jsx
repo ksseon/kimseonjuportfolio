@@ -4,6 +4,7 @@ import "./modal.scss";
 
 export default function Modal({ project, onClose }) {
   if (!project) return null;
+
   let modalRoot = document.getElementById("modal-root");
   if (!modalRoot) {
     modalRoot = document.createElement("div");
@@ -18,7 +19,6 @@ export default function Modal({ project, onClose }) {
     const header = document.querySelector("#site-header");
     if (header) header.style.pointerEvents = "none";
 
-    // ✅ cleanup
     return () => {
       document.body.style.overflow = prevOverflow || "auto";
       if (header) header.style.pointerEvents = "auto";
@@ -37,14 +37,15 @@ export default function Modal({ project, onClose }) {
           <h2>{project.title}</h2>
           <p className="desc">{project.desc}</p>
 
-          {/* 프로젝트별 버튼 */}
+          {/* ===== 프로젝트별 버튼 ===== */}
           <div className="modal-links">
-            {/* Bugs Music*/}
             {project.title === "Bugs Music" ? (
               <>
-                <a href={project.figma} target="_blank" rel="noreferrer">
-                  Figma ↗
-                </a>
+                {project.figma && (
+                  <a href={project.figma} target="_blank" rel="noreferrer">
+                    Figma ↗
+                  </a>
+                )}
                 {project.plan && (
                   <a href={project.plan} target="_blank" rel="noreferrer">
                     기획서 ↗
@@ -52,50 +53,82 @@ export default function Modal({ project, onClose }) {
                 )}
               </>
             ) : project.title === "NSSMART" ? (
-              // NSSMART
               <>
-                <a href={project.figma} target="_blank" rel="noreferrer">
-                  Figma ↗
-                </a>
+                {project.figma && (
+                  <a href={project.figma} target="_blank" rel="noreferrer">
+                    Figma ↗
+                  </a>
+                )}
               </>
-            ) : (
-              // 나머지 프로젝트
+            ) : project.title === "Knto" || project.title === "Kyungdong" ? (
               <>
-                <a href={project.github} target="_blank" rel="noreferrer">
-                  Github ↗
-                </a>
-                <a href={project.figma} target="_blank" rel="noreferrer">
-                  Figma ↗
-                </a>
+                {project.github && (
+                  <a href={project.github} target="_blank" rel="noreferrer">
+                    Github ↗
+                  </a>
+                )}
                 {project.plan && (
                   <a href={project.plan} target="_blank" rel="noreferrer">
                     기획서 ↗
                   </a>
                 )}
-                <a
-                  href={project.site}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="primary"
-                >
-                  View Web Page ↗
-                </a>
+                {project.site && (
+                  <a
+                    href={project.site}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="primary"
+                  >
+                    View Web Page ↗
+                  </a>
+                )}
+              </>
+            ) : (
+              <>
+                {project.github && (
+                  <a href={project.github} target="_blank" rel="noreferrer">
+                    Github ↗
+                  </a>
+                )}
+                {project.figma && (
+                  <a href={project.figma} target="_blank" rel="noreferrer">
+                    Figma ↗
+                  </a>
+                )}
+                {project.plan && (
+                  <a href={project.plan} target="_blank" rel="noreferrer">
+                    기획서 ↗
+                  </a>
+                )}
+                {project.site && (
+                  <a
+                    href={project.site}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="primary"
+                  >
+                    View Web Page ↗
+                  </a>
+                )}
               </>
             )}
           </div>
 
+          {/* ===== Info Section (툴 / 페이지 / 타입) ===== */}
           <div className="info-section">
             <div className="info-box">
               <h5>Tools</h5>
-              <p>{project.tools}</p>
+              <p>{project.tools || "내용 없음"}</p>
             </div>
+
             <div className="info-box">
               <h5>Pages</h5>
-              <p>{project.pages}</p>
+              <p>{project.pages || "페이지 정보 없음"}</p>
             </div>
+
             <div className="info-box">
               <h5>Type</h5>
-              <p>{project.type}</p>
+              <p>{project.type || "Type 정보 없음"}</p>
             </div>
           </div>
         </div>
