@@ -1,6 +1,6 @@
 import { useRef, useEffect, useState } from "react";
 import Modal from "./Modal";
-import ProjectAllModal from "./ProjectAllModal"; // ✅ 전체보기 모달 추가
+import ProjectAllModal from "./ProjectAllModal";
 import "./project.scss";
 
 const projects = [
@@ -68,10 +68,10 @@ const projects = [
     desc: "현대건설 웹사이트를 사용자 중심 구조로 리디자인하고 접근성을 강화한 프로젝트입니다.",
     thumbnail: "/images/Hyundai-E&C_thumb.png",
     imgSlides: ["/images/Hyundai-E&C_1.png", "/images/Hyundai-E&C_2.png"],
-    github: "https://github.com/ksseon/hyundai-enc",
+    /*github: "https://github.com/ksseon/hyundai-enc",*/
     figma:
       "https://www.figma.com/design/oafY4C1yidKzddwKGW999q/%ED%98%84%EB%8C%80%EA%B1%B4%EC%84%A4?node-id=0-1&t=tPFaV0bLgyKQA2zG-1",
-    site: "https://hyundaienc-redesign.vercel.app/",
+    /*site: "https://hyundaienc-redesign.vercel.app/",*/
     tools: "HTML·CSS·JavaScript·Figma",
     pages: "메인·사업소개·채용·뉴스·공지사항",
     type: "Personal Project",
@@ -109,7 +109,7 @@ const projects = [
     thumbnail: "/images/Kyungdong_thumb.png",
     imgSlides: ["/images/Kyungdong_1.png", "/images/Kyungdong_2.png"],
     github: "https://github.com/ksseon/kyungdong",
-    site: "https://kyungdong-redesign.vercel.app/",
+    site: "https://kyungdong-flax.vercel.app/",
     tools: "HTML·CSS·JavaScript",
     pages: "메인·제품소개·홍보센터·고객문의",
     type: "Personal Project",
