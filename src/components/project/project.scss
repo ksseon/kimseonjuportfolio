@@ -114,6 +114,7 @@
     transform: scale(1.05);
   }
 }
+
 .info {
   cursor: pointer;
   margin-top: 18px;
@@ -135,6 +136,7 @@
     color: #202020;
     margin-bottom: 20px;
     transition: color 0.3s;
+
     &:hover {
       color: #187cc4;
     }
@@ -157,6 +159,7 @@
   transform: scale(1.05);
   transition: transform 0.45s ease;
 }
+
 .project-item:hover .card {
   transform: translateY(-8px);
 }

@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { createPortal } from "react-dom";
+import { IoClose } from "react-icons/io5";
 import "./modal.scss";
 
 export default function Modal({ project, onClose }) {
@@ -28,8 +29,8 @@ export default function Modal({ project, onClose }) {
   return createPortal(
     <div className="modal" onClick={onClose}>
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-        <button className="close" onClick={onClose}>
-          ✕
+        <button className="close" onClick={onClose} aria-label="Close modal">
+          <IoClose />
         </button>
 
         <div className="modal-top">

@@ -1,5 +1,6 @@
 import { useRef, useEffect, useState } from "react";
 import Modal from "./Modal";
+import ProjectAllModal from "./ProjectAllModal"; // ✅ 전체보기 모달 추가
 import "./project.scss";
 
 const projects = [
@@ -146,6 +147,7 @@ export default function Project() {
   const wrapperRef = useRef(null);
   const sliderRef = useRef(null);
   const [activeProject, setActiveProject] = useState(null);
+  const [showAll, setShowAll] = useState(false); // ✅ 추가
   const scrollX = useRef(0);
 
   useEffect(() => {
@@ -218,7 +220,9 @@ export default function Project() {
 
       <div className="head">
         <span className="title">Featured Projects</span>
-        <button className="view-all">See All Projects ↗</button>
+        <button className="view-all" onClick={() => setShowAll(true)}>
+          See All Projects ↗
+        </button>
       </div>
 
       <div className="slider" ref={sliderRef}>
@@ -240,6 +244,14 @@ export default function Project() {
 
       {activeProject && (
         <Modal project={activeProject} onClose={() => setActiveProject(null)} />
+      )}
+
+      {/* ✅ 전체보기 모달 */}
+      {showAll && (
+        <ProjectAllModal
+          projects={projects}
+          onClose={() => setShowAll(false)}
+        />
       )}
     </section>
   );
