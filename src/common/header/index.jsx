@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import NavBar from "./NavBar";
 import "./style.scss";
 
-export default function Header() {
+const Header = () => {
   return (
     <header id="site-header">
       <div className="inner">
@@ -17,4 +17,5 @@ export default function Header() {
       </div>
     </header>
   );
-}
+};
+export default Header;

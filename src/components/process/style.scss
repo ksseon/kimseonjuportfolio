@@ -8,7 +8,6 @@
   overflow: hidden;
 }
 
-/* 패스선 */
 .process-path {
   position: absolute;
   right: 0;
@@ -29,7 +28,6 @@
   }
 }
 
-/*Process Work */
 .rtitle {
   position: absolute;
   left: 0;
@@ -43,7 +41,6 @@
   pointer-events: none;
 }
 
-/* 카드  */
 .review-wrp {
   display: flex;
   flex-wrap: wrap;
@@ -68,7 +65,6 @@
   transition: transform 0.3s ease;
 }
 
-/* 카드 헤더 */
 .rhead {
   display: flex;
   justify-content: space-between;
@@ -94,7 +90,6 @@
   }
 }
 
-/* 카드 본문 */
 .content {
   color: #333;
   font-size: 16px;
@@ -103,7 +98,6 @@
   margin-top: 8px;
 }
 
-/* 이미지 영역 */
 .pic {
   margin-top: 10px;
   width: 100%;

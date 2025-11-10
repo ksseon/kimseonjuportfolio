@@ -5,7 +5,7 @@ import "./style.scss";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function Contact() {
+const Contact = () => {
   const sectionRef = useRef(null);
   const pathRef = useRef(null);
 
@@ -27,14 +27,12 @@ export default function Contact() {
         },
       });
 
-      // 패스선
       tl.to(path, {
         strokeDashoffset: 0,
         duration: 3.0,
         ease: "power2.inOut",
       });
 
-      // 텍스트 등장
       tl.fromTo(
         ".contact-inner",
         { opacity: 0, y: 60 },
@@ -81,4 +79,5 @@ export default function Contact() {
       </div>
     </section>
   );
-}
+};
+export default Contact;

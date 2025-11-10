@@ -10,7 +10,6 @@ export const MyRoutes = () => {
       <Routes>
         <Route element={<Layout />}>
           <Route index element={<Home />} />
-
           {/* <Route path="*" element={<NotFound />} /> */}
         </Route>
       </Routes>

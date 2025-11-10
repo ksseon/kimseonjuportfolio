@@ -2,7 +2,7 @@ import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import "./style.scss";
 
-export default function Hobbies() {
+const Hobbies = () => {
   const sectionRef = useRef(null);
   const marqueeRef = useRef(null);
 
@@ -12,19 +12,15 @@ export default function Hobbies() {
     { name: "Fishing", img: "/images/Fishing.png" },
     { name: "My Pet", img: "/images/Puppy.png" },
   ];
-
-  /* ✅ 마퀴: 무한 루프 + 스크롤 반전 */
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
       const marquee = marqueeRef.current;
       const inner = marquee.querySelector(".marquee__inner");
       const parts = marquee.querySelectorAll(".marquee__part");
 
-      // 🔹 컨텐츠 복제 → 끊김 없는 루프
       const clone = inner.cloneNode(true);
       marquee.appendChild(clone);
 
-      // 🔹 기본 애니메이션
       const tween = gsap
         .to(".marquee__part", {
           xPercent: -100,
@@ -36,7 +32,6 @@ export default function Hobbies() {
 
       gsap.set(".marquee__inner", { xPercent: -50 });
 
-      // 🔹 스크롤 방향 감지
       let lastScroll = window.pageYOffset;
       let isDown = true;
 
@@ -53,7 +48,6 @@ export default function Hobbies() {
     return () => ctx.revert();
   }, []);
 
-  /* ✅ 텍스트 등장 + 이미지 호버 */
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({
@@ -81,7 +75,6 @@ export default function Hobbies() {
         "-=0.6"
       );
 
-      // Hover 애니메이션
       const items = gsap.utils.toArray(".menu__item");
       items.forEach((item) => {
         const imgWrapper = item.querySelector(".menu__item-image_wrapper");
@@ -122,7 +115,6 @@ export default function Hobbies() {
 
   return (
     <section className="hobbies" ref={sectionRef}>
-      {/* 🔹 본문 */}
       <div className="hobbies-inner">
         <div className="hobbies-header">
           <h2>My Hobbies & Favorite</h2>
@@ -142,17 +134,18 @@ export default function Hobbies() {
             </div>
           ))}
         </div>
-      </div>{" "}
-      {/* 🔹 상단 마퀴 */}
+      </div>
       <section className="marquee" ref={marqueeRef}>
         <div className="marquee__inner">
           {Array.from({ length: 6 }).map((_, i) => (
             <div className="marquee__part" key={i}>
-              FRONTEND CREATIVE PORTFOLIO
+              FRONTEND CREATIVE PORTFOLIO BY KIMSEONJU
             </div>
           ))}
         </div>
       </section>
     </section>
   );
-}
+};
+
+export default Hobbies;

@@ -47,7 +47,6 @@ const Home = () => {
     []
   );
 
-  /* 전역 클래스 관리 */
   useEffect(() => {
     const html = document.documentElement;
     if (stage === "intro") html.classList.add("intro-active");
@@ -76,7 +75,6 @@ const Home = () => {
     if (!scope) return;
 
     const ctx = gsap.context(() => {
-      /*  인트로  */
       if (stage === "intro" && showIntro) {
         const p = introPathRef.current;
         if (p) {
@@ -119,9 +117,7 @@ const Home = () => {
         }
       }
 
-      /* 히어로  */
       if (stage === "hero") {
-        // 파티클
         if (!particlesInitRef.current && !prefersReducedMotion) {
           const bits = gsap.utils.toArray(".codebit");
           bits.forEach((el) => {
@@ -142,8 +138,6 @@ const Home = () => {
           });
           particlesInitRef.current = true;
         }
-
-        // 오른쪽 곡선 + 순차 콘텐츠
         if (!whoDrawnRef.current) {
           const path = whoRightPathRef.current;
           if (path) {
@@ -178,22 +172,22 @@ const Home = () => {
                   strokeDashoffset: len,
                   opacity: 1,
                 })
-                .to(path, { strokeDashoffset: 0, duration: 2.2, delay: 0.2 }) // 1) 라인 드로우
+                .to(path, { strokeDashoffset: 0, duration: 2.2, delay: 0.2 })
                 .to(
                   ".who-center",
                   { autoAlpha: 1, y: 0, duration: 0.6 },
                   "-=0.8"
-                ) // 2) Who am I?
+                )
                 .to(
                   ".hero__headline",
                   { autoAlpha: 1, y: 0, duration: 0.8 },
                   "-=0.2"
-                ) // 3) 중앙 헤드라인
+                )
                 .to(
                   ".hero__headline",
                   { autoAlpha: 0, y: -10, duration: 0.4 },
                   "+=1.5"
-                ) // 4) 잠시 유지 후 사라짐
+                )
                 .to(
                   ".hero__left",
                   { autoAlpha: 1, y: 0, duration: 0.7 },
@@ -222,7 +216,6 @@ const Home = () => {
 
   return (
     <section ref={wrapRef} className="intro-hero visual">
-      {/* 비디오 배경 */}
       <video
         className="visual__bg"
         src="/ocean4.mp4"
@@ -231,15 +224,11 @@ const Home = () => {
         muted
         playsInline
       />
-
-      {/* 오버레이 */}
       <div
         className={`visual__overlay ${
           stage === "hero" ? "overlay--dark" : "overlay--intro"
         }`}
       />
-
-      {/* 인트로(단독) */}
       {showIntro && (
         <div
           className={`intro ${stage === "intro" ? "is-active" : ""}`}
@@ -255,23 +244,17 @@ const Home = () => {
           </svg>
         </div>
       )}
-
-      {/* ===== 히어로(인트로 중에는 CSS로 숨김 처리) ===== */}
       <div
         className={`hero ${stage === "hero" ? "is-active" : ""}`}
         aria-hidden={stage !== "hero"}
       >
         <span className="who-center">Who am I ?</span>
-
-        {/* 중앙 대형 헤드라인  */}
         <div className="headline-layer">
           <h2 className="hero__headline">
             한계 없이 항해하는 <br />
             프론트엔드 개발자 선주입니다.
           </h2>
         </div>
-
-        {/* 패스선 */}
         <svg
           className="who-right-curve"
           viewBox="0 0 940 232"
@@ -284,8 +267,6 @@ const Home = () => {
             className="who-right-path"
           />
         </svg>
-
-        {/* 파티클 */}
         <div className="hero__field" aria-hidden="true">
           {particles.map((p, i) => (
             <span
@@ -303,8 +284,6 @@ const Home = () => {
             </span>
           ))}
         </div>
-
-        {/* 중앙 그리드: 좌/우 콘텐츠 */}
         <div className="hero__grid">
           <div className="hero__left">
             <h1 className="hero__name">

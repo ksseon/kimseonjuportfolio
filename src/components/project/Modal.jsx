@@ -3,7 +3,7 @@ import { createPortal } from "react-dom";
 import { IoClose } from "react-icons/io5";
 import "./modal.scss";
 
-export default function Modal({ project, onClose }) {
+const Modal = ({ project, onClose }) => {
   if (!project) return null;
 
   let modalRoot = document.getElementById("modal-root");
@@ -155,4 +155,5 @@ export default function Modal({ project, onClose }) {
     </div>,
     modalRoot
   );
-}
+};
+export default Modal;

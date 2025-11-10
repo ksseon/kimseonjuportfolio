@@ -3,7 +3,7 @@ import Modal from "./Modal";
 import "./projectAllModal.scss";
 import { IoClose } from "react-icons/io5";
 
-export default function ProjectAllModal({ projects, onClose }) {
+const ProjectAllModal = ({ projects, onClose }) => {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [activeProject, setActiveProject] = useState(null);
 
@@ -66,4 +66,5 @@ export default function ProjectAllModal({ projects, onClose }) {
       </div>
     </div>
   );
-}
+};
+export default ProjectAllModal;

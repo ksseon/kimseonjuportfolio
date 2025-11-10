@@ -5,13 +5,12 @@ import "./style.scss";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function Process() {
+const Process = () => {
   const sectionRef = useRef(null);
   const pathRef = useRef(null);
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
-      /* 패스선 */
       const path = pathRef.current;
       if (path) {
         const length = path.getTotalLength();
@@ -30,7 +29,6 @@ export default function Process() {
         });
       }
 
-      /* 🔹 카드 애니메이션 */
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: ".work",
@@ -43,7 +41,6 @@ export default function Process() {
       tl.fromTo(".rl", { y: "350%" }, { y: "-120%" }, 0);
       tl.fromTo(".rr", { y: "300%" }, { y: "-80%" }, 0);
 
-      /* Process Work */
       gsap.fromTo(
         ".rtitle",
         { x: "45vw", y: "10vh", opacity: 0.2 },
@@ -152,4 +149,5 @@ export default function Process() {
       </div>
     </section>
   );
-}
+};
+export default Process;

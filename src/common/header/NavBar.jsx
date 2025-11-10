@@ -9,7 +9,7 @@ const TARGETS = {
   contact: "#contact, .contact",
 };
 
-export default function NavBar() {
+const NavBar = () => {
   const { pathname } = useLocation();
   const navigate = useNavigate();
   const [scrolled, setScrolled] = useState(false);
@@ -135,4 +135,5 @@ export default function NavBar() {
       </ul>
     </nav>
   );
-}
+};
+export default NavBar;
