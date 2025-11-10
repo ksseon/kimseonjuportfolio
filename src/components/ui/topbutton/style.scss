@@ -1,0 +1,30 @@
+@use "../../../styles/utils/" as *;
+
+.top-btn {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  z-index: 9999;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  opacity: 0.85;
+
+  img {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    transition: all 0.25s ease;
+
+    &:hover {
+      border-color: #187cc4;
+      transform: translateY(-3px);
+      filter: brightness(1.1);
+    }
+  }
+
+  &:active img {
+    transform: translateY(0);
+  }
+}

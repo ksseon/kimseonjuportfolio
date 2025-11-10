@@ -9,34 +9,31 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(255, 255, 255, 0.3);
-  backdrop-filter: blur(16px);
+  background: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(14px);
   animation: fadeIn 0.3s ease;
   z-index: 99999;
-  pointer-events: auto;
 
   .modal-content {
     position: relative;
     background: #fff;
-    border-radius: 28px;
-    width: 90%;
-    max-width: 1000px;
-    padding: 70px 80px; /* ✅ 상단 여백 살짝 늘림 */
+    border-radius: 24px;
+    width: 88%;
+    max-width: 880px;
+    padding: 50px 60px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
     animation: pop 0.35s ease-out;
-    z-index: 100000;
 
     .close {
       position: absolute;
-      top: 28px;
-      right: 34px;
+      top: 20px;
+      right: 26px;
       background: none;
       border: none;
       font-size: 28px;
       color: #777;
       cursor: pointer;
       transition: color 0.2s;
-      z-index: 100001;
 
       &:hover {
         color: #000;
@@ -44,39 +41,39 @@
     }
 
     .modal-top {
-      margin-bottom: 70px;
+      margin-bottom: 24px;
 
       .stack {
         display: inline-block;
         font-size: 15px;
         color: #666;
-        margin-bottom: 12px; /* ✅ 스택 아래 여백 증가 */
+        margin-bottom: 10px;
       }
 
       h2 {
-        font-size: 42px;
+        font-size: 36px;
         font-weight: 700;
         color: #111;
-        margin-bottom: 16px; /* ✅ 제목 아래 간격 확대 */
+        margin-bottom: 25px;
       }
 
       p {
-        font-size: 17px;
+        font-size: 16px;
         color: #444;
-        line-height: 1.75;
-        margin-bottom: 40px; /* ✅ 설명과 버튼 사이 여유 */
+        line-height: 1.7;
+        margin-bottom: 24px;
       }
 
       .modal-links {
         display: flex;
-        gap: 16px;
-        margin-bottom: 56px;
+        gap: 14px;
+        margin-bottom: 38px;
         flex-wrap: wrap;
 
         a {
           border: 1px solid #ccc;
           border-radius: 30px;
-          padding: 10px 24px;
+          padding: 8px 22px;
           font-size: 15px;
           color: #333;
           text-decoration: none;
@@ -100,80 +97,54 @@
         }
       }
 
-      /* ✅ info-section : 균등 + 시각적 여백 + 줄바꿈 구조 */
       .info-section {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-        text-align: left;
-        gap: 60px;
-        margin-top: 40px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
         border-top: 1px solid #eee;
-        padding-top: 32px;
+        padding-top: 20px;
+        margin-top: 18px;
+        text-align: left;
 
         .info-box {
-          flex: 1 1 0;
-          width: 33.333%;
           display: flex;
           flex-direction: column;
-          gap: 10px;
-          text-align: left;
+          gap: 6px;
+          min-width: 0;
 
           h5 {
-            font-size: 14px;
-            color: #a0a0a0;
+            font-size: 13px;
+            color: #999;
             font-weight: 500;
-            letter-spacing: 0.3px;
           }
 
           p {
             font-size: 15px;
-            line-height: 1.9;
+            line-height: 1.6;
             color: #222;
-            word-break: keep-all;
-            overflow-wrap: break-word;
-            white-space: pre-line; /* ✅ 코딩/디자인 줄바꿈 정확히 반영 */
 
-            .contribution {
-              display: block;
-              margin-top: 8px;
-              font-size: 13px;
-              color: #666;
-              line-height: 1.6;
-            }
+            /* ✅ 줄바꿈 관련 */
+            white-space: pre-line; /* \n 줄바꿈 반영 */
+            overflow-wrap: break-word;
+            word-break: break-all; /* 🔥 중간점 등 모든 문자에서도 줄바꿈 */
           }
         }
       }
     }
 
     .modal-slider {
-      position: relative;
-      width: 100%;
       display: flex;
-      align-items: center;
       justify-content: center;
-      margin-top: 50px;
+      align-items: center;
+      gap: 18px;
+      margin-top: 28px;
 
       img {
         width: 100%;
-        border-radius: 20px;
-        max-height: 520px;
+        max-height: 100%;
+        border-radius: 14px;
         object-fit: contain;
-        box-shadow: 0 6px 30px rgba(0, 0, 0, 0.08);
-      }
-    }
-
-    .modal-slider.two-images {
-      display: flex;
-      gap: 28px;
-      justify-content: center;
-      align-items: center;
-
-      img {
-        width: 48%;
-        border-radius: 20px;
-        object-fit: cover;
-        box-shadow: 0 6px 30px rgba(0, 0, 0, 0.08);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
         transition: transform 0.3s ease;
 
         &:hover {

@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
 import Header from "./header";
-import TopButton from "../components/ui/topbutton/TopButton";
+import TopButton from "./TopButton"; // ✅ 탑버튼 추가
 
 const Layout = () => {
   return (
@@ -11,6 +11,8 @@ const Layout = () => {
       <main className="main">
         <Outlet />
       </main>
+
+      {/* ✅ 스크롤 시 표시되는 탑버튼 */}
       <TopButton />
     </div>
   );

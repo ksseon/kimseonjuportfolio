@@ -46,7 +46,7 @@ const projects = [
     site: "https://lush-navy.vercel.app/",
     tools: "React·Vite·GSAP·SCSS·Swiper·Figma·ChatGPT",
     pages:
-      "코딩 : 메인·k-컨텐츠 소개·스파안내·로그인·회원가입\n디자인 : 메인·로그인·회원가입",
+      "코딩 : 메인·k-컨텐츠 소개·스파안내·로그인·회원가입 디자인 : 메인·로그인·회원가입",
     type: "Team Project",
   },
   {

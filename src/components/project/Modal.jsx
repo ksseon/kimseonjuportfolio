@@ -36,6 +36,7 @@ export default function Modal({ project, onClose }) {
           <span className="stack">{project.stack}</span>
           <h2>{project.title}</h2>
           <p className="desc">{project.desc}</p>
+
           <div className="modal-links">
             {project.title === "Bugs Music" ? (
               <>
