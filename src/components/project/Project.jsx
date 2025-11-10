@@ -132,10 +132,11 @@ const projects = [
   {
     title: "NSSMART",
     stack: "Illustrator / Photoshop",
-    desc: "엔에스스마트에서 키오스크, 태블릿, 모바일 앱 등 다양한 디바이스에 최적화된 UI 디자인과 사용자 경험을 구현한 프로젝트입니다.",
+    desc: "7년간 NSSMART에서 키오스크부터 모바일 앱까지, 다양한 디지털 환경의 프로젝트를 경험하며 사용자 중심의 UI/UX를 구축했습니다.",
     thumbnail: "/images/NSSMART_thumb.png",
     imgSlides: ["/images/NSSMART_1.png", "/images/NSSMART_2.png"],
-    figma: "https://www.figma.com/file/xxxx/nssmart",
+    figma:
+      "https://www.figma.com/proto/XKCLHR859wmmb1fBbJPHkb/NSSMART_portfolio?page-id=0%3A1&node-id=1-2&recovery=true&viewport=670%2C396%2C0.13&t=vrH0gChFi0iK1EB9-1&scaling=min-zoom&content-scaling=fixed",
     tools: "Illustrator·Photoshop",
     pages: "키오스크·대시보드·테블릿·모바일앱",
     type: "Work Project",
