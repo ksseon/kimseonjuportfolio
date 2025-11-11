@@ -5,7 +5,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 80px;
+  height: vw(80px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -15,14 +15,14 @@
 
   &.scrolled {
     background: rgba(31, 37, 43, 0.4);
-    backdrop-filter: blur(20px);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(vw(20px));
+    box-shadow: 0 vw(4px) vw(20px) rgba(0, 0, 0, 0.25);
   }
 
   .inner {
-    width: min(1800px, 92vw);
+    width: min(vw(1800px), 92vw);
     margin-inline: auto;
-    padding: 14px 16px;
+    padding: vw(14px) vw(16px);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -37,13 +37,13 @@
     a {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: vw(10px);
       text-decoration: none;
     }
 
     .logo {
-      width: 36px;
-      height: 36px;
+      width: vw(36px);
+      height: vw(36px);
       object-fit: contain;
       flex-shrink: 0;
       display: block;
@@ -57,38 +57,38 @@
 
     .name {
       color: #ffffff;
-      font-size: 16px;
+      font-size: vw(16px);
       font-weight: 600;
-      letter-spacing: 0.3px;
+      letter-spacing: vw(0.3px);
       white-space: nowrap;
     }
 
     .desc {
       color: #cccccc;
-      font-size: 14px;
+      font-size: vw(14px);
       font-weight: 400;
-      letter-spacing: 0.2px;
+      letter-spacing: vw(0.2px);
       white-space: nowrap;
     }
   }
 
   .menu {
     display: flex;
-    gap: 28px;
+    gap: vw(28px);
     list-style: none;
     margin: 0;
-    padding: 8px 12px;
+    padding: vw(8px) vw(12px);
 
     a {
       position: relative;
       display: inline-block;
-      padding: 6px 20px;
+      padding: vw(6px) vw(20px);
       color: #bfbfbf;
       text-align: center;
       font-family: Pretendard;
-      font-size: 16px;
+      font-size: vw(16px);
       font-weight: 400;
-      line-height: 20px;
+      line-height: vw(20px);
       transition: color 0.18s ease, opacity 0.18s ease;
 
       &::before,
@@ -100,21 +100,21 @@
         opacity: 0;
         transition: opacity 0.18s ease, transform 0.18s ease;
         color: #4fa5de;
-        font-size: 14px;
+        font-size: vw(14px);
         font-weight: 700;
         pointer-events: none;
       }
 
       &::before {
         content: "{";
-        left: 6px;
-        transform: translate(-4px, -50%);
+        left: vw(6px);
+        transform: translate(vw(-4px), -50%);
       }
 
       &::after {
         content: "}";
-        right: 6px;
-        transform: translate(4px, -50%);
+        right: vw(6px);
+        transform: translate(vw(4px), -50%);
       }
 
       &:hover::before,
@@ -138,8 +138,8 @@
   .hamburger {
     display: none;
     position: relative;
-    width: 28px;
-    height: 22px;
+    width: vw(28px);
+    height: vw(22px);
     cursor: pointer;
     z-index: 20;
     margin-left: auto;
@@ -148,9 +148,9 @@
       position: absolute;
       left: 0;
       width: 100%;
-      height: 3px;
+      height: vw(3px);
       background: #fff;
-      border-radius: 4px;
+      border-radius: vw(4px);
       transition: all 0.35s ease;
     }
 
@@ -158,7 +158,7 @@
       top: 0;
     }
     span:nth-child(2) {
-      top: 9px;
+      top: vw(9px);
     }
     span:nth-child(3) {
       bottom: 0;
@@ -166,7 +166,7 @@
 
     &.active span:nth-child(1) {
       transform: rotate(45deg);
-      top: 9px;
+      top: vw(9px);
     }
 
     &.active span:nth-child(2) {
@@ -175,14 +175,14 @@
 
     &.active span:nth-child(3) {
       transform: rotate(-45deg);
-      bottom: 9px;
+      bottom: vw(9px);
     }
   }
 
   @media (max-width: 680px) {
     .inner {
       width: 96vw;
-      padding: 12px 10px;
+      padding: vw(12px) vw(10px);
     }
 
     .hamburger {
@@ -191,16 +191,16 @@
 
     .menu {
       position: absolute;
-      top: 80px;
+      top: vw(80px);
       left: 0;
       width: 100%;
       flex-direction: column;
       align-items: center;
       justify-content: flex-start;
-      gap: 22px;
+      gap: vw(22px);
       background: rgba(15, 18, 22, 0.96);
-      backdrop-filter: blur(12px);
-      padding: 48px 0;
+      backdrop-filter: blur(vw(12px));
+      padding: vw(48px) 0;
       transform: translateY(-120%);
       opacity: 0;
       pointer-events: none;
@@ -214,8 +214,8 @@
     }
 
     .menu a {
-      font-size: 18px;
-      padding: 8px 24px;
+      font-size: vw(18px);
+      padding: vw(8px) vw(24px);
       color: #e6e6e6;
     }
 
@@ -224,16 +224,16 @@
     }
 
     .seonju .logo {
-      width: 30px;
-      height: 30px;
+      width: vw(30px);
+      height: vw(30px);
     }
 
     .seonju .name {
-      font-size: 15px;
+      font-size: vw(15px);
     }
 
     .seonju .desc {
-      font-size: 13px;
+      font-size: vw(13px);
     }
   }
 }
