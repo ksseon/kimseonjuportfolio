@@ -34,6 +34,7 @@ html.intro-active {
   inset: 0;
   z-index: 1;
   pointer-events: none;
+
   &.overlay--dark {
     background: radial-gradient(
       33.33% 33.33% at 50% 66.67%,
@@ -41,6 +42,7 @@ html.intro-active {
       rgba(0, 9, 17, 0.9) 100%
     );
   }
+
   &.overlay--intro {
     background: radial-gradient(50% 50% at 50% 50%, #020e17 0%, #020c14 100%);
   }
@@ -80,6 +82,7 @@ html.intro-active {
   z-index: 3;
   opacity: 0;
   pointer-events: none;
+
   &.is-active {
     opacity: 1;
     pointer-events: auto;
@@ -107,6 +110,7 @@ html.intro-active {
   z-index: 4;
   pointer-events: none;
 }
+
 .intro-hero .hero.is-active .headline-layer .hero__headline {
   font-size: 60px;
   line-height: 1.8;
@@ -126,6 +130,7 @@ html.intro-active {
   width: 923px;
   height: 228px;
 }
+
 .who-right-path {
   fill: none;
   stroke: #4fa5de;
@@ -141,6 +146,7 @@ html.intro-active {
   pointer-events: none;
   overflow: hidden;
 }
+
 .codebit {
   position: absolute;
   color: hsla(var(--h, 205), 80%, 74%, var(--a, 0.35));
@@ -164,10 +170,12 @@ html.intro-active {
   overflow: visible;
   z-index: 5;
 }
+
 .hero__name {
   display: flex;
   overflow: visible;
 }
+
 .hero__name-text {
   font-family: "Sokcho Bada Dotum";
   font-size: clamp(60px, 8vw, 110px);
@@ -182,6 +190,7 @@ html.intro-active {
   z-index: 6;
   transform: translateZ(0);
 }
+
 .hero__caption {
   margin-top: 22px;
   color: #c9d0d8;
@@ -193,6 +202,7 @@ html.intro-active {
 
 .hero__right {
 }
+
 .hero__desc {
   color: #aeaeae;
   font-family: Pretendard;
@@ -209,9 +219,20 @@ html.intro-active {
   pointer-events: none;
   transform: translateY(-8px);
 }
+
 #header,
 #site-header {
   transition: opacity 0.45s ease, transform 0.45s ease, visibility 0.45s ease;
+}
+
+@media (max-width: 768px) {
+  .route {
+    stroke-width: 2.5;
+  }
+
+  .who-right-path {
+    stroke-width: 2;
+  }
 }
 
 @media (max-width: 700px) {
@@ -219,6 +240,7 @@ html.intro-active {
     font-size: 36px;
     width: 90vw;
   }
+
   .hero__grid {
     flex-direction: column;
     gap: 24px;
@@ -226,7 +248,18 @@ html.intro-active {
     margin: 240px auto 0;
     padding-left: 16px;
   }
+
   .who-right-curve {
     width: 64vw;
+  }
+}
+
+@media (max-width: 480px) {
+  .route {
+    stroke-width: 2;
+  }
+
+  .who-right-path {
+    stroke-width: 1.6;
   }
 }

@@ -135,6 +135,7 @@ html.intro-active .about {
       min-width: 0;
     }
   }
+
   &__skill--global {
     margin-top: 40px;
     text-align: center;
@@ -144,9 +145,7 @@ html.intro-active .about {
       text-align: center;
       font-family: "Cormorant Garamond", "Times New Roman", serif;
       font-size: 35px;
-      font-style: normal;
       font-weight: 400;
-      line-height: normal;
       letter-spacing: 0.7px;
       margin-bottom: vw(40px);
     }
@@ -187,57 +186,35 @@ html.intro-active .about {
     .about__skill-grid {
       display: flex;
       gap: 35px;
+      justify-content: center;
+      flex-wrap: wrap;
     }
 
     .skill-card {
       position: relative;
-      text-align: left;
-      width: 320px;
+      text-align: center;
+      width: 160px;
       box-sizing: border-box;
-      &:nth-child(1) {
-        padding-left: 0;
-      }
-      &:nth-child(4) {
-        padding-right: 0;
-      }
-      &::after {
-        content: "";
-        position: absolute;
-        top: 0;
-        right: -10px;
-        width: 1px;
-        height: 100%;
-        background-color: #272727;
-      }
 
-      &:last-child::after {
-        display: none;
-      }
-      &:nth-child(2),
-      &:nth-child(4) {
-        padding-top: 100px;
-      }
       .skill-icon {
         margin-bottom: 12px;
       }
 
       .skill-title {
         color: #bfe6ff;
-        font-size: 25px;
-        font-style: normal;
+        font-size: 20px;
         font-weight: 300;
         line-height: normal;
         letter-spacing: 0.4px;
-        margin-bottom: 20px;
       }
 
       .skill-desc {
         color: #b5b5b5;
-        font-size: 16px;
-        font-style: normal;
+        font-size: 15px;
         font-weight: 300;
         line-height: 150%;
         letter-spacing: 0.32px;
+        margin-top: 10px;
       }
     }
   }
@@ -256,7 +233,7 @@ html.intro-active .about {
 
 @media (max-width: 768px) {
   .about {
-    padding: 80px 16px 120px;
+    padding: 80px 16px 100px;
 
     &__wrap {
       flex-direction: column;
@@ -267,7 +244,6 @@ html.intro-active .about {
 
     &__photo {
       margin: 0 auto;
-      transform-origin: 50% 50%;
       img {
         width: 220px;
       }
@@ -276,14 +252,57 @@ html.intro-active .about {
     &__info {
       width: 100%;
       min-width: auto;
+      margin: 0 auto;
+    }
+
+    &__list {
+      .row {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 12px;
+      }
+
+      .date {
+        font-size: 15px;
+        margin-bottom: 4px;
+      }
+
+      .desc {
+        font-size: 15px;
+        line-height: 1.5;
+      }
     }
 
     &__skill--global {
       margin-top: 60px;
 
+      .about__skill-title {
+        font-size: 28px;
+        margin-bottom: 24px;
+      }
+
       .about__skill-grid {
+        display: grid;
         grid-template-columns: repeat(2, 1fr);
+        justify-items: center;
         gap: 24px;
+      }
+
+      .skill-card {
+        width: 120px;
+
+        .skill-icon {
+          margin-bottom: 8px;
+        }
+
+        .skill-title {
+          font-size: 14px;
+        }
+
+        .skill-desc {
+          display: none;
+        }
       }
     }
   }
