@@ -105,18 +105,18 @@
     }
   }
 
-  @media (max-width: 1024px) {
+  @media (max-width: 390px) {
     .marquee {
-      font-size: vw(24px);
+      font-size: 24px;
     }
 
     .menu__item-text {
-      font-size: 5vw;
+      font-size: 20px;
     }
 
     .menu__item-image_wrapper {
-      width: 70vw;
-      height: 40vw;
+      width: 273px;
+      height: 156px;
       left: 50%;
       top: 58%;
     }

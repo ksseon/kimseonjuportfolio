@@ -263,21 +263,22 @@ html.intro-active .about {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 390px) {
   .about {
-    padding: vw(80px) vw(16px) vw(100px);
+    padding: 80px 16px 100px;
 
     &__wrap {
       flex-direction: column;
       align-items: center;
       text-align: center;
-      gap: vw(40px);
+      gap: 40px;
     }
 
     &__photo {
       margin: 0 auto;
+
       img {
-        width: vw(220px);
+        width: 220px;
       }
     }
 
@@ -292,49 +293,51 @@ html.intro-active .about {
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        margin-bottom: vw(16px);
+        margin-bottom: 16px;
       }
 
       .date {
-        font-size: vw(15px);
-        margin-bottom: vw(4px);
+        font-size: 15px;
+        margin-bottom: 4px;
       }
 
       .desc {
-        font-size: vw(15px);
+        font-size: 15px;
         line-height: 1.5;
       }
     }
 
     &__skill--global {
-      margin-top: vw(60px);
+      margin-top: 60px;
 
       .about__skill-title {
-        font-size: vw(28px);
-        margin-bottom: vw(24px);
+        font-size: 28px;
+        margin-bottom: 24px;
       }
 
       .about__skill-grid {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         justify-items: center;
-        gap: vw(32px) vw(24px);
+        gap: 32px 24px;
       }
 
       .skill-card {
-        width: vw(140px);
+        width: 140px;
         padding: 0;
         text-align: center;
+
         &:nth-child(2),
         &:nth-child(4) {
-          padding-top: vw(0px);
+          padding-top: 0;
         }
+
         .skill-icon {
-          margin-bottom: vw(8px);
+          margin-bottom: 8px;
         }
 
         .skill-title {
-          font-size: vw(15px);
+          font-size: 15px;
         }
 
         .skill-desc {
