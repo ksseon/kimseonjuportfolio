@@ -2,11 +2,12 @@
 
 .hobbies {
   width: 100%;
-  height: vw(892px);
+  min-height: vw(892px);
   background-color: #1f252b;
   position: relative;
   overflow: hidden;
   display: block;
+  padding-bottom: vw(80px);
 
   .marquee {
     margin-top: vw(120px);
@@ -50,7 +51,7 @@
     align-items: center;
     gap: 2em;
     margin-bottom: 3em;
-    opacity: 0;
+    opacity: 1;
 
     h2 {
       color: #4fa5de;
@@ -72,6 +73,13 @@
     position: relative;
     margin-bottom: 0.3em;
     cursor: pointer;
+
+    &:hover .menu__item-image_wrapper,
+    &:active .menu__item-image_wrapper {
+      opacity: 1;
+      transform: translateY(vw(-10px));
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
   }
 
   .menu__item-text {
@@ -81,7 +89,9 @@
     font-weight: 300;
     line-height: 140%;
     transition: color 0.3s ease;
-    &:hover {
+
+    &:hover,
+    &:active {
       color: #4fa5de;
     }
   }
@@ -91,10 +101,12 @@
     top: vw(-80px);
     left: vw(800px);
     width: vw(480px);
-    height: 100%;
+    height: vw(300px);
     opacity: 0;
     pointer-events: none;
     z-index: 5;
+    transform: translateY(0);
+    transition: opacity 0.5s ease, transform 0.5s ease;
 
     img {
       width: 100%;
@@ -106,19 +118,51 @@
   }
 
   @media (max-width: 390px) {
+    min-height: auto;
     .marquee {
       font-size: 24px;
+      height: auto;
+      line-height: 1.3;
+    }
+    .hobbies-header {
+      flex-direction: column;
+      align-items: center;
+
+      h2 {
+        font-size: 22px;
+        text-align: center;
+      }
+    }
+
+    .menu {
+      align-items: center;
     }
 
     .menu__item-text {
       font-size: 20px;
+      text-align: center;
     }
 
     .menu__item-image_wrapper {
+      position: relative;
       width: 273px;
       height: 156px;
-      left: 50%;
-      top: 58%;
+      margin: 30px auto 0;
+      left: 0;
+      top: 0;
+      opacity: 0;
+      transform: translateY(0);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+
+      img {
+        border-radius: 8px;
+      }
+    }
+
+    .menu__item:hover .menu__item-image_wrapper,
+    .menu__item:active .menu__item-image_wrapper {
+      opacity: 1;
+      transform: translateY(-6px);
     }
   }
 }
