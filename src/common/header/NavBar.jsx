@@ -14,20 +14,19 @@ const NavBar = () => {
   const navigate = useNavigate();
   const [scrolled, setScrolled] = useState(false);
   const [activeKey, setActiveKey] = useState("home");
+  const [menuOpen, setMenuOpen] = useState(false);
   const ioRef = useRef(null);
 
   useEffect(() => {
     const onScroll = () => {
       const isScrolled = window.scrollY > 10;
       setScrolled(isScrolled);
-
       const header = document.getElementById("site-header");
       if (header) {
         if (isScrolled) header.classList.add("scrolled");
         else header.classList.remove("scrolled");
       }
     };
-
     onScroll();
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
@@ -74,17 +73,16 @@ const NavBar = () => {
 
     els.forEach(({ el }) => io.observe(el));
     ioRef.current = io;
-
     return () => io.disconnect();
   }, [pathname]);
 
   const go = (key) => (e) => {
     e.preventDefault();
+    setMenuOpen(false);
     const doScroll = () => {
       const el = getTargetEl(key);
       if (el) smoothScrollTo(el);
     };
-
     if (pathname !== "/") {
       navigate("/");
       setTimeout(doScroll, 80);
@@ -95,7 +93,15 @@ const NavBar = () => {
 
   return (
     <nav className={`nav ${scrolled ? "nav--scrolled" : ""}`}>
-      <ul className="menu">
+      <div
+        className={`hamburger ${menuOpen ? "active" : ""}`}
+        onClick={() => setMenuOpen(!menuOpen)}
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <ul className={`menu ${menuOpen ? "open" : ""}`}>
         <li>
           <a
             href="/#visual"
@@ -136,4 +142,5 @@ const NavBar = () => {
     </nav>
   );
 };
+
 export default NavBar;

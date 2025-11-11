@@ -237,7 +237,7 @@ const Home = () => {
           <svg
             className="intro__route"
             viewBox="-509 -40 2922 410"
-            preserveAspectRatio="none"
+            preserveAspectRatio="xMidYMid meet"
             aria-hidden="true"
           >
             <path ref={introPathRef} className="route" d={SEONJU_PATH_D} />

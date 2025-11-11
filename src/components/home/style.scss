@@ -52,21 +52,19 @@ html.intro-active {
   z-index: 2;
   opacity: 1;
   pointer-events: none;
-  clip-path: inset(0% 0% 0% 0%);
-  &.is-active {
-    opacity: 1;
-  }
 }
+
 .intro__route {
   position: absolute;
-  left: 0;
-  right: 0;
+  left: 50%;
   top: 50%;
-  transform: translateY(-50%);
+  transform: translate(-50%, -50%);
   width: 100vw;
-  height: clamp(240px, 26vh, 320px);
+  height: auto;
   overflow: visible;
+  display: block;
 }
+
 .route {
   fill: none;
   stroke: #4fa5de;
