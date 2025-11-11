@@ -2,8 +2,8 @@
 
 .top-btn {
   position: fixed;
-  bottom: 40px;
-  right: 40px;
+  bottom: vw(40px);
+  right: vw(40px);
   z-index: 9999;
   background: none;
   border: none;
@@ -12,14 +12,14 @@
   opacity: 0.85;
 
   img {
-    width: 46px;
-    height: 46px;
+    width: vw(46px);
+    height: vw(46px);
     border-radius: 50%;
     transition: all 0.25s ease;
 
     &:hover {
       border-color: #187cc4;
-      transform: translateY(-3px);
+      transform: translateY(vw(-3px));
       filter: brightness(1.1);
     }
   }

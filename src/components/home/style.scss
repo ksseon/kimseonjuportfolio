@@ -70,7 +70,7 @@ html.intro-active {
 .route {
   fill: none;
   stroke: #4fa5de;
-  stroke-width: 5;
+  stroke-width: vw(5px);
   stroke-linecap: round;
   stroke-linejoin: round;
   vector-effect: non-scaling-stroke;
@@ -97,9 +97,9 @@ html.intro-active {
   color: #4fa5de;
   text-align: center;
   font-family: "Cormorant Garamond", "Times New Roman", serif;
-  font-size: 35px;
+  font-size: vw(35px);
   font-weight: 400;
-  letter-spacing: 0.7px;
+  letter-spacing: vw(0.7px);
 }
 
 .headline-layer {
@@ -112,29 +112,29 @@ html.intro-active {
 }
 
 .intro-hero .hero.is-active .headline-layer .hero__headline {
-  font-size: 60px;
+  font-size: vw(60px);
   line-height: 1.8;
   margin: 0;
-  width: min(1200px, 92vw);
+  width: min(vw(1200px), 92vw);
   color: #fff;
   text-align: center;
   font-family: "Sokcho Bada Dotum";
   font-weight: 900;
-  letter-spacing: 1.2px;
+  letter-spacing: vw(1.2px);
 }
 
 .who-right-curve {
   position: absolute;
   top: 10%;
-  right: -20px;
-  width: 923px;
-  height: 228px;
+  right: vw(-20px);
+  width: vw(923px);
+  height: vw(228px);
 }
 
 .who-right-path {
   fill: none;
   stroke: #4fa5de;
-  stroke-width: 3;
+  stroke-width: vw(3px);
   stroke-linecap: round;
   stroke-linejoin: round;
 }
@@ -150,7 +150,7 @@ html.intro-active {
 .codebit {
   position: absolute;
   color: hsla(var(--h, 205), 80%, 74%, var(--a, 0.35));
-  text-shadow: 0 0 10px hsla(var(--h, 205), 80%, 60%, 0.25);
+  text-shadow: 0 0 vw(10px) hsla(var(--h, 205), 80%, 60%, 0.25);
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Courier New",
     monospace;
   will-change: transform, opacity;
@@ -158,10 +158,10 @@ html.intro-active {
 
 .hero__grid {
   position: relative;
-  width: min(1200px, 92vw);
-  margin: 500px auto 0;
+  width: min(vw(1200px), 92vw);
+  margin: vw(500px) auto 0;
   display: flex;
-  gap: 80px;
+  gap: vw(80px);
   z-index: 5;
 }
 
@@ -178,9 +178,9 @@ html.intro-active {
 
 .hero__name-text {
   font-family: "Sokcho Bada Dotum";
-  font-size: clamp(60px, 8vw, 110px);
+  font-size: clamp(vw(60px), 8vw, vw(110px));
   font-weight: 900;
-  letter-spacing: 10px;
+  letter-spacing: vw(10px);
   background: linear-gradient(90deg, #5433ff 0%, #20bdff 50%, #a5fecb 100%);
   background-clip: text;
   -webkit-background-clip: text;
@@ -192,11 +192,11 @@ html.intro-active {
 }
 
 .hero__caption {
-  margin-top: 22px;
+  margin-top: vw(22px);
   color: #c9d0d8;
   opacity: 0.7;
   font-family: Pretendard;
-  font-size: 16px;
+  font-size: vw(16px);
   line-height: 1.9;
 }
 
@@ -206,10 +206,10 @@ html.intro-active {
 .hero__desc {
   color: #aeaeae;
   font-family: Pretendard;
-  font-size: 18px;
+  font-size: vw(18px);
   font-weight: 300;
   line-height: 1.8;
-  letter-spacing: 0.36px;
+  letter-spacing: vw(0.36px);
 }
 
 .intro-active #header,
@@ -217,7 +217,7 @@ html.intro-active {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transform: translateY(-8px);
+  transform: translateY(vw(-8px));
 }
 
 #header,
@@ -227,26 +227,26 @@ html.intro-active {
 
 @media (max-width: 768px) {
   .route {
-    stroke-width: 2.5;
+    stroke-width: vw(2.5px);
   }
 
   .who-right-path {
-    stroke-width: 2;
+    stroke-width: vw(2px);
   }
 }
 
 @media (max-width: 700px) {
   .intro-hero .hero.is-active .headline-layer .hero__headline {
-    font-size: 36px;
+    font-size: vw(36px);
     width: 90vw;
   }
 
   .hero__grid {
     flex-direction: column;
-    gap: 24px;
+    gap: vw(24px);
     width: 92vw;
-    margin: 240px auto 0;
-    padding-left: 16px;
+    margin: vw(240px) auto 0;
+    padding-left: vw(16px);
   }
 
   .who-right-curve {
@@ -256,10 +256,10 @@ html.intro-active {
 
 @media (max-width: 480px) {
   .route {
-    stroke-width: 2;
+    stroke-width: vw(2px);
   }
 
   .who-right-path {
-    stroke-width: 1.6;
+    stroke-width: vw(1.6px);
   }
 }

@@ -4,7 +4,7 @@
   width: 100%;
   position: relative;
   background-color: #e6e6e6;
-  padding: 340px 0 20px;
+  padding: vw(340px) 0 vw(20px);
   overflow: hidden;
 }
 
@@ -12,8 +12,8 @@
   position: absolute;
   right: 0;
   top: 0;
-  transform: translateX(40px);
-  width: 600px;
+  transform: translateX(vw(40px));
+  width: vw(600px);
   height: auto;
   z-index: 0;
   opacity: 0.9;
@@ -22,7 +22,7 @@
 
   path {
     stroke: #4fa5de;
-    stroke-width: 4;
+    stroke-width: vw(4px);
     fill: none;
     stroke-linecap: round;
   }
@@ -32,7 +32,7 @@
   position: absolute;
   left: 0;
   top: 5%;
-  font-size: 140px;
+  font-size: vw(140px);
   font-family: "Cormorant Infant", serif;
   font-weight: 700;
   color: rgba(100, 100, 100, 0.25);
@@ -45,20 +45,21 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 80px 80px;
+  gap: vw(80px) vw(80px);
   position: relative;
   z-index: 5;
-  max-width: 1000px;
+  max-width: vw(1000px);
   margin: 0 auto;
-  margin-top: 160px;
+  margin-top: vw(160px);
 }
+
 .review {
-  width: 360px;
-  height: 280px;
+  width: vw(360px);
+  height: vw(280px);
   background: #fff;
-  border-radius: 20px;
-  padding: 30px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  border-radius: vw(20px);
+  padding: vw(30px);
+  box-shadow: 0 vw(10px) vw(40px) rgba(0, 0, 0, 0.15);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -71,39 +72,39 @@
   align-items: center;
 
   strong {
-    font-size: 18px;
+    font-size: vw(18px);
     color: #4fa5de;
   }
 
   .step {
     display: flex;
     align-items: baseline;
-    gap: 6px;
-    font-size: 14px;
+    gap: vw(6px);
+    font-size: vw(14px);
     color: #858585;
     font-weight: 300;
 
     p {
       color: #4fa5de;
-      font-size: 18px;
+      font-size: vw(18px);
     }
   }
 }
 
 .content {
   color: #333;
-  font-size: 16px;
+  font-size: vw(16px);
   font-weight: 400;
   line-height: 140%;
-  margin-top: 8px;
+  margin-top: vw(8px);
 }
 
 .pic {
-  margin-top: 10px;
+  margin-top: vw(10px);
   width: 100%;
-  height: 100px;
+  height: vw(100px);
   background: #fff;
-  border-radius: 10px;
+  border-radius: vw(10px);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -121,13 +122,13 @@
 
 @media (max-width: 1024px) {
   .rtitle {
-    font-size: 120px;
+    font-size: vw(120px);
   }
 
   .review-wrp {
     flex-direction: column;
     align-items: center;
-    gap: 60px;
+    gap: vw(60px);
   }
 
   .review {
@@ -136,7 +137,7 @@
   }
 
   .pic {
-    height: 140px;
+    height: vw(140px);
   }
 
   .process-path {
