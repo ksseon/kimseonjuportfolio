@@ -226,25 +226,47 @@ html.intro-active {
 }
 
 @media (max-width: 390px) {
-  .route {
-    stroke-width: 2px;
+  .route,
+  .intro__route,
+  .who-right-curve,
+  .who-right-path {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
   }
 
-  .who-right-path {
-    stroke-width: 1.6px;
+  .who-center {
+    font-size: 26px;
+    top: 15%;
   }
 
   .intro-hero .hero.is-active .headline-layer .hero__headline {
-    font-size: 32px;
-    width: 90%;
+    font-size: 38px;
+    width: 92%;
+    line-height: 1.4;
+  }
+  .hero__name-text {
+    font-size: 48px !important;
+    letter-spacing: 4px;
   }
 
   .hero__grid {
     flex-direction: column;
     gap: 20px;
     width: 92%;
-    margin: 200px auto 0;
-    padding-left: 14px;
+    margin: 180px auto 0;
+    padding-left: 6px;
+  }
+
+  .hero__desc {
+    font-size: 17px;
+    line-height: 1.7;
+    text-align: center;
+  }
+
+  .hero__caption {
+    font-size: 14px;
+    line-height: 1.6;
   }
 
   .who-right-curve {

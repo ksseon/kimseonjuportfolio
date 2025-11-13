@@ -56,7 +56,7 @@ html.intro-active .about {
 
     img {
       display: block;
-      width: vw(330px);
+      width: vw(340px);
       height: auto;
       border-radius: vw(10px);
       box-shadow: 0 vw(8px) vw(20px) rgba(0, 0, 0, 0.45);
@@ -102,19 +102,16 @@ html.intro-active .about {
     font-size: vw(16px);
     font-weight: 300;
     line-height: normal;
-    margin-top: vw(10px);
+    margin-top: vw(18px);
   }
 
   &__list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
     .row {
       display: flex;
       justify-content: flex-start;
       align-items: baseline;
       column-gap: vw(40px);
-      margin-bottom: vw(6px);
+      margin-bottom: vw(4px);
     }
 
     .date {
@@ -142,7 +139,6 @@ html.intro-active .about {
   &__skill--global {
     margin-top: vw(40px);
     text-align: center;
-
     .about__skill-title {
       color: #4fa5de;
       text-align: center;
@@ -279,7 +275,25 @@ html.intro-active .about {
 
       img {
         width: 220px;
+        align-items: center;
       }
+    }
+    &__name {
+      font-size: 35px;
+
+      .en {
+        font-size: 30px;
+        margin-bottom: 20px;
+      }
+    }
+
+    &__birth {
+      font-size: 16px;
+      margin: 20px 0;
+    }
+
+    &__title {
+      font-size: 16px;
     }
 
     &__info {

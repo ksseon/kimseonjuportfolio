@@ -72,6 +72,7 @@
     font-weight: 300;
     line-height: 150%;
     letter-spacing: vw(0.36px);
+
     li {
       letter-spacing: vw(0.3px);
       transition: color 0.3s ease;
@@ -122,6 +123,34 @@
 
     .contact-line {
       height: vw(120px);
+    }
+
+    .contact-sub {
+      font-size: 28px;
+      letter-spacing: 1px;
+    }
+
+    .contact-title {
+      font-size: 28px;
+      line-height: 1.5;
+    }
+
+    .contact-info {
+      font-size: 18px;
+      line-height: 1.6;
+
+      li {
+        font-size: 18px;
+      }
+    }
+
+    .contact-right p {
+      font-size: 17px;
+      line-height: 1.5;
+    }
+
+    .contact-right img {
+      width: 80px;
     }
   }
 }
