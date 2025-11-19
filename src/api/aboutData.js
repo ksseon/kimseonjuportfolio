@@ -59,7 +59,7 @@ export const SKILL_SLIDES = [
       {
         icon: "/images/Redux.png",
         title: "Redux",
-        desc: "복잡한 상태를 체계적으로 관리할 수 있습니다.",
+        desc: "복잡한 상태를 체계적으로 관리할 수 있습니다.(전역 상태(Store), 액션(Action), 리듀서(Reducer) 구조로 동작)",
       },
       {
         icon: "/images/React-Router.png",
