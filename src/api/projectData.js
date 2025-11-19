@@ -10,7 +10,7 @@ export const projects = [
       "https://www.figma.com/design/D0GaqAdVieSVIW0GFDit8v/2%EC%B0%A8-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-3%EC%A1%B0?node-id=11-2&t=ENl71hbWULOd6NUi-1",
     plan: "https://www.figma.com/proto/zXaFrOF7fqd6D6jTLl3vwT/RoadOn_%EA%B8%B0%ED%9A%8D%EC%84%9C?page-id=0%3A1&node-id=1-270&p=f&viewport=562%2C73%2C0.25&t=d84KGFbD66Jnoufs-1&scaling=min-zoom&content-scaling=fixed",
     site: "https://road-on-project-three.vercel.app/",
-    tools: "React·TypeScript·Zustand·GSAP·SCSS·Swiper·Figma·ChatGPT",
+    tools: "React·Zustand·GSAP·SCSS·Swiper·Figma·ChatGPT",
     pages:
       "코딩 : 항공 예약 및 상세페이지\n디자인 : 메인·항공 예약 및 상세 페이지·투어 리스트",
     type: "Team Project",
