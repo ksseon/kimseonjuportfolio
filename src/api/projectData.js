@@ -40,7 +40,7 @@ export const projects = [
       "https://www.figma.com/design/2HdfThwuCfgNsoDuqWImwY/LUSH-%EB%94%94%EC%9E%90%EC%9D%B8?node-id=342-3202&t=ajt6a7RGos07eesY-1",
     plan: "https://www.figma.com/proto/7obCQB8RJ2HiUtsbMFOrtf/LUSH_%EA%B8%B0%ED%9A%8D%EC%84%9C?page-id=0%3A1&node-id=1-315&p=f&viewport=721%2C-7468%2C0.14&t=kkdgHThYMjieMOqp-1&scaling=min-zoom&content-scaling=fixed",
     site: "https://lush-navy.vercel.app/",
-    tools: "React·Vite·GSAP·SCSS·Swiper·Figma·ChatGPT",
+    tools: "React·Redux·Vite·GSAP·SCSS·Swiper·Figma·ChatGPT",
     pages:
       "코딩 : 메인·k-컨텐츠 소개·스파안내·로그인·회원가입 디자인 : 메인·로그인·회원가입",
     type: "Team Project",
