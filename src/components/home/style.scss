@@ -118,7 +118,7 @@ html.intro-active {
   width: min(vw(1200px), 92vw);
   color: #fff;
   text-align: center;
-  font-family: "Sokcho Bada Dotum";
+  font-family: "SokchoBadaDotum";
   font-weight: 900;
   letter-spacing: vw(1.2px);
 }
@@ -126,7 +126,7 @@ html.intro-active {
 .who-right-curve {
   position: absolute;
   top: 10%;
-  right: vw(-20px);
+  right: vw(-60px);
   width: vw(923px);
   height: vw(228px);
 }
@@ -177,7 +177,7 @@ html.intro-active {
 }
 
 .hero__name-text {
-  font-family: "Sokcho Bada Dotum";
+  font-family: "SokchoBadaDotum";
   font-size: clamp(vw(60px), 8vw, vw(110px));
   font-weight: 900;
   letter-spacing: vw(10px);

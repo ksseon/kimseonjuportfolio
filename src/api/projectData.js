@@ -1,7 +1,7 @@
 export const projects = [
   {
     title: "RoadOn",
-    stack: "TypeScript",
+    stack: "React",
     desc: "Typescript를 기반으로 코드의 안정성을 높이고, 영화 속 장면을 실제 여행지와 연결하는 시네마틱 여행사이트 프로젝트입니다.",
     thumbnail: "/images/RoadOn_thumb.png",
     imgSlides: ["/images/RoadOn_1.png", "/images/RoadOn_2.png"],
