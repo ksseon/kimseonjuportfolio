@@ -15,20 +15,36 @@ const Modal = ({ project, onClose }) => {
 
   useEffect(() => {
     const prevOverflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
+    document.body.style.setProperty("overflow", "hidden", "important");
+
+    const stopWheel = (e) => e.preventDefault();
+    window.addEventListener("wheel", stopWheel, { passive: false });
 
     const header = document.querySelector("#site-header");
     if (header) header.style.pointerEvents = "none";
 
     return () => {
-      document.body.style.overflow = prevOverflow || "auto";
+      document.body.style.setProperty(
+        "overflow",
+        prevOverflow || "auto",
+        "important"
+      );
+      window.removeEventListener("wheel", stopWheel);
       if (header) header.style.pointerEvents = "auto";
     };
   }, []);
 
   return createPortal(
-    <div className="modal" onClick={onClose}>
-      <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+    <div
+      className="modal"
+      onClick={onClose}
+      onWheel={(e) => e.stopPropagation()}
+    >
+      <div
+        className="modal-content"
+        onClick={(e) => e.stopPropagation()}
+        onWheel={(e) => e.stopPropagation()}
+      >
         <button className="close" onClick={onClose} aria-label="Close modal">
           <IoClose />
         </button>
@@ -156,4 +172,5 @@ const Modal = ({ project, onClose }) => {
     modalRoot
   );
 };
+
 export default Modal;
