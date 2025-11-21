@@ -132,7 +132,7 @@ export const projects = [
     imgSlides: ["/images/NSSMART_1.png", "/images/NSSMART_2.png"],
     figma:
       "https://www.figma.com/proto/XKCLHR859wmmb1fBbJPHkb/NSSMART_portfolio?page-id=0%3A1&node-id=1-2&recovery=true&viewport=670%2C396%2C0.13&t=vrH0gChFi0iK1EB9-1&scaling=min-zoom&content-scaling=fixed",
-    tools: "Illustrator·Photoshop",
+    tools: "Illustrator·Photoshop·Flash",
     pages: "키오스크·대시보드·테블릿·모바일앱",
     type: "Work Project",
   },
