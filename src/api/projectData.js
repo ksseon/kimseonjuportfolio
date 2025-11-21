@@ -7,12 +7,12 @@ export const projects = [
     imgSlides: ["/images/RoadOn_1.png", "/images/RoadOn_2.png"],
     github: "https://github.com/Hwanyeong815/RoadOn_Project.git",
     figma:
-      "https://www.figma.com/design/D0GaqAdVieSVIW0GFDit8v/2%EC%B0%A8-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-3%EC%A1%B0?node-id=11-2&t=ENl71hbWULOd6NUi-1",
-    plan: "https://www.figma.com/proto/zXaFrOF7fqd6D6jTLl3vwT/RoadOn_%EA%B8%B0%ED%9A%8D%EC%84%9C?page-id=0%3A1&node-id=1-270&p=f&viewport=562%2C73%2C0.25&t=d84KGFbD66Jnoufs-1&scaling=min-zoom&content-scaling=fixed",
+      "https://www.figma.com/proto/D0GaqAdVieSVIW0GFDit8v/2%EC%B0%A8-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-3%EC%A1%B0?node-id=3208-7374&t=zZW60eynTIJ6JMUM-0&scaling=min-zoom&content-scaling=fixed&page-id=11%3A2",
+    plan: "https://www.figma.com/proto/zXaFrOF7fqd6D6jTLl3vwT/RoadOn_%EA%B8%B0%ED%9A%8D%EC%84%9C?page-id=0%3A1&node-id=1-270&viewport=424%2C247%2C0.51&t=EDM5oO7bgYsN2Unt-1&scaling=min-zoom&content-scaling=fixed",
     site: "https://road-on-project-three.vercel.app/",
     tools: "React·Zustand·GSAP·SCSS·Swiper·Figma·ChatGPT",
     pages:
-      "코딩 : 항공 예약 및 상세페이지\n디자인 : 메인·항공 예약 및 상세 페이지·투어 리스트",
+      "코딩 : 항공 예약 및 상세페이지\n디자인 : 기획서·메인·항공 예약 및 상세 페이지·투어 리스트",
     type: "Team Project",
   },
   {
@@ -23,7 +23,7 @@ export const projects = [
     imgSlides: ["/images/Portfolio_1.png", "/images/Portfolio_2.png"],
     github: "https://github.com/ksseon/kimseonjuportfolio.git",
     figma:
-      "https://www.figma.com/design/ooD4M67t4qlqBny2Tig3J0/kimseonju_frontend_portfolio?node-id=0-1&t=Z33qpQjMVqIJBnAv-1",
+      "https://www.figma.com/proto/ooD4M67t4qlqBny2Tig3J0/kimseonju_frontend_portfolio?page-id=0%3A1&node-id=1-2&viewport=511%2C329%2C0.16&t=FHbEUHJleVcKZ4yu-1&scaling=min-zoom&content-scaling=fixed",
     site: "https://kimseonjuportfolio.vercel.app/",
     tools: "React·Vite·SCSS·GSAP·Figma·ChatGPT",
     pages: "Home·About·Project·Contact",
@@ -37,12 +37,12 @@ export const projects = [
     imgSlides: ["/images/LUSH_1.png", "/images/LUSH_2.png"],
     github: "https://github.com/SongTam-tam/lush.git",
     figma:
-      "https://www.figma.com/design/2HdfThwuCfgNsoDuqWImwY/LUSH-%EB%94%94%EC%9E%90%EC%9D%B8?node-id=342-3202&t=ajt6a7RGos07eesY-1",
+      "https://www.figma.com/proto/2HdfThwuCfgNsoDuqWImwY/LUSH-%EB%94%94%EC%9E%90%EC%9D%B8?page-id=1134%3A10477&node-id=1620-7956&viewport=302%2C-589%2C0.08&t=WNVb1V2Gk96dHJgG-1&scaling=min-zoom&content-scaling=fixed",
     plan: "https://www.figma.com/proto/7obCQB8RJ2HiUtsbMFOrtf/LUSH_%EA%B8%B0%ED%9A%8D%EC%84%9C?page-id=0%3A1&node-id=1-315&p=f&viewport=721%2C-7468%2C0.14&t=kkdgHThYMjieMOqp-1&scaling=min-zoom&content-scaling=fixed",
     site: "https://lush-navy.vercel.app/",
     tools: "React·Redux·Vite·GSAP·SCSS·Swiper·Figma·ChatGPT",
     pages:
-      "코딩 : 메인·k-컨텐츠 소개·스파안내·로그인·회원가입 디자인 : 메인·로그인·회원가입",
+      "코딩 : 메인·k-컨텐츠 소개·스파안내·로그인·회원가입 / 디자인 : 기획서·메인·로그인·회원가입",
     type: "Team Project",
   },
   {
@@ -65,7 +65,7 @@ export const projects = [
     imgSlides: ["/images/Hyundai-E&C_1.png", "/images/Hyundai-E&C_2.png"],
     /*github: "https://github.com/ksseon/hyundai-enc",*/
     figma:
-      "https://www.figma.com/design/oafY4C1yidKzddwKGW999q/%ED%98%84%EB%8C%80%EA%B1%B4%EC%84%A4?node-id=0-1&t=tPFaV0bLgyKQA2zG-1",
+      "https://www.figma.com/proto/oafY4C1yidKzddwKGW999q/%ED%98%84%EB%8C%80%EA%B1%B4%EC%84%A4?page-id=0%3A1&node-id=31-26&viewport=1319%2C812%2C0.15&t=y7dQaIpDRwJ5OovX-1&scaling=min-zoom&content-scaling=fixed",
     /*site: "https://hyundaienc-redesign.vercel.app/",*/
     tools: "HTML·CSS·JavaScript·Figma",
     pages: "메인·사업소개·채용·뉴스·공지사항",
@@ -91,7 +91,7 @@ export const projects = [
     imgSlides: ["/images/Kepco_1.png", "/images/Kepco_2.png"],
     github: "https://github.com/ksseon/kepco",
     figma:
-      "https://www.figma.com/design/RnFfvWPa2SHIs4JKTGIbhL/2%EC%B0%A8-%EB%AF%B8%EB%8B%88%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EB%A6%AC%EB%94%94%EC%9E%90%EC%9D%B8?node-id=9-5&t=9Jquo9DmOdQWE7Tq-1",
+      "https://www.figma.com/proto/RnFfvWPa2SHIs4JKTGIbhL/2%EC%B0%A8-%EB%AF%B8%EB%8B%88%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EB%A6%AC%EB%94%94%EC%9E%90%EC%9D%B8?page-id=9%3A5&node-id=500-44&viewport=-40%2C164%2C0.09&t=nL8BHIeNdG5n0sjI-1&scaling=min-zoom&content-scaling=fixed",
     site: "https://kepco-sigma.vercel.app/",
     tools: "HTML·CSS·JavaScript·Figma",
     pages: "코딩 및 디자인 : 회사소개·지식센터·민원센터",
@@ -121,7 +121,7 @@ export const projects = [
     plan: "https://www.figma.com/deck/rJsFjnKBoYdItd4FXMXeL2/Bugs----%EA%B8%B0%ED%9A%8D%EC%84%9C?node-id=32-51&viewport=-1899%2C-26926%2C0.8&t=OdIVomjcHNQGllVt-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1",
     site: "https://www.figma.com/proto/Jdc21fIAy5WfNBax4XpG1D/%EC%9E%84%EB%8F%84%ED%9D%AC-%EA%B9%80%EC%9C%A4%EC%95%84-%EA%B9%80%EC%84%A0%EC%A3%BC---%EB%B2%85%EC%8A%A4%EB%AE%A4%EC%A7%81-%EC%95%B1-%EB%A6%AC%EB%94%94%EC%9E%90%EC%9D%B8---%EC%B5%9C%EC%A2%85?page-id=190%3A2622&node-id=2037-5117&p=f&viewport=1150%2C397%2C0.08&t=jYULBe0xh2FAKy7R-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=2037%3A5490&show-proto-sidebar=1",
     tools: "Figma",
-    pages: "스플래시·메인·로그인·회원가입",
+    pages: "기획서·스플래시·메인·로그인·회원가입",
     type: "Team Project",
   },
   {
