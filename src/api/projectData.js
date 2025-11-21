@@ -127,7 +127,7 @@ export const projects = [
   {
     title: "NSSMART",
     stack: "Illustrator / Photoshop",
-    desc: "7년간 NSSMART에서 키오스크부터 모바일 앱까지, 다양한 디지털 환경의 프로젝트를 경험하며 사용자 중심의 UI/UX를 구축했습니다.",
+    desc: "7년간 NSSMART에서 키오스크부터 모바일 앱까지 다양한 디지털 환경의 프로젝트를 경험하며 사용자 중심의 UI/UX를 구축했습니다.",
     thumbnail: "/images/NSSMART_thumb.png",
     imgSlides: ["/images/NSSMART_1.png", "/images/NSSMART_2.png"],
     figma:
