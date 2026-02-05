@@ -61,7 +61,8 @@ html.intro-active {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  width: 100vw;
+  width: 100%;
+  height: 100%;
   height: auto;
   overflow: visible;
   display: block;
@@ -151,8 +152,8 @@ html.intro-active {
   position: absolute;
   color: hsla(var(--h, 205), 80%, 74%, var(--a, 0.35));
   text-shadow: 0 0 vw(10px) hsla(var(--h, 205), 80%, 60%, 0.25);
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Courier New",
-    monospace;
+  font-family:
+    ui-monospace, SFMono-Regular, Menlo, Monaco, "Courier New", monospace;
   will-change: transform, opacity;
 }
 
@@ -222,7 +223,10 @@ html.intro-active {
 
 #header,
 #site-header {
-  transition: opacity 0.45s ease, transform 0.45s ease, visibility 0.45s ease;
+  transition:
+    opacity 0.45s ease,
+    transform 0.45s ease,
+    visibility 0.45s ease;
 }
 
 @media (max-width: 390px) {

@@ -1,6 +1,12 @@
+html,
+body {
+  overflow-x: hidden;
+}
+
 @font-face {
   font-family: "SokchoBadaDotum";
-  src: url("./assets/font/SokchoBadaDotum.woff2") format("woff2"),
+  src:
+    url("./assets/font/SokchoBadaDotum.woff2") format("woff2"),
     url("./assets/font/SokchoBadaDotum.woff") format("woff");
   font-display: swap;
 }

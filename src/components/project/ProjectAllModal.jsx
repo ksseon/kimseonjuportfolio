@@ -22,7 +22,7 @@ const ProjectAllModal = ({ projects, onClose }) => {
       document.body.style.setProperty(
         "overflow",
         prevOverflow || "auto",
-        "important"
+        "important",
       );
       window.removeEventListener("wheel", stopWheel);
       if (header) header.style.pointerEvents = "auto";
@@ -31,7 +31,6 @@ const ProjectAllModal = ({ projects, onClose }) => {
 
   const categories = [
     "All",
-    "TypeScript",
     "React",
     "JavaScript",
     "Figma / Prototype",
