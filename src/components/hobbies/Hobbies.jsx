@@ -61,7 +61,7 @@ const Hobbies = () => {
       tl.fromTo(
         ".hobbies-header",
         { opacity: 0, y: 40 },
-        { opacity: 1, y: 0, duration: 1.2, ease: "power3.out" }
+        { opacity: 1, y: 0, duration: 1.2, ease: "power3.out" },
       ).fromTo(
         ".menu__item-innertext",
         { yPercent: 100, opacity: 0 },
@@ -72,7 +72,7 @@ const Hobbies = () => {
           stagger: 0.15,
           ease: "expo.out",
         },
-        "-=0.6"
+        "-=0.6",
       );
 
       const items = gsap.utils.toArray(".menu__item");
@@ -139,7 +139,7 @@ const Hobbies = () => {
         <div className="marquee__inner">
           {Array.from({ length: 6 }).map((_, i) => (
             <div className="marquee__part" key={i}>
-              FRONTEND CREATIVE PORTFOLIO BY KIMSEONJU
+              UI/UX/WEB DESIGN PORTFOLIO BY KIMSEONJU
             </div>
           ))}
         </div>

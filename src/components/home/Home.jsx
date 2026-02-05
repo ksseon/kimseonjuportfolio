@@ -44,7 +44,7 @@ const Home = () => {
       typeof window !== "undefined" &&
       window.matchMedia &&
       window.matchMedia("(prefers-reduced-motion: reduce)").matches,
-    []
+    [],
   );
 
   useEffect(() => {
@@ -107,7 +107,7 @@ const Home = () => {
               .to(
                 ".intro",
                 { autoAlpha: 0, duration: INTRO_WRAP_FADE, ease: "power2.out" },
-                "-=0.85"
+                "-=0.85",
               )
               .add(() => {
                 setShowIntro(false);
@@ -151,7 +151,7 @@ const Home = () => {
                 ".hero__caption",
                 ".hero__desc",
               ],
-              { autoAlpha: 0, y: 20 }
+              { autoAlpha: 0, y: 20 },
             );
 
             if (prefersReducedMotion) {
@@ -176,32 +176,32 @@ const Home = () => {
                 .to(
                   ".who-center",
                   { autoAlpha: 1, y: 0, duration: 0.6 },
-                  "-=0.8"
+                  "-=0.8",
                 )
                 .to(
                   ".hero__headline",
                   { autoAlpha: 1, y: 0, duration: 0.8 },
-                  "-=0.2"
+                  "-=0.2",
                 )
                 .to(
                   ".hero__headline",
                   { autoAlpha: 0, y: -10, duration: 0.4 },
-                  "+=1.5"
+                  "+=1.5",
                 )
                 .to(
                   ".hero__left",
                   { autoAlpha: 1, y: 0, duration: 0.7 },
-                  "-=0.1"
+                  "-=0.1",
                 )
                 .to(
                   ".hero__caption",
                   { autoAlpha: 1, y: 0, duration: 0.6 },
-                  "-=0.4"
+                  "-=0.4",
                 )
                 .to(
                   ".hero__desc",
                   { autoAlpha: 1, y: 0, duration: 0.7 },
-                  "-=0.05"
+                  "-=0.05",
                 );
             }
 
@@ -251,8 +251,9 @@ const Home = () => {
         <span className="who-center">Who am I ?</span>
         <div className="headline-layer">
           <h2 className="hero__headline">
-            한계 없이 항해하는 <br />
-            프론트엔드 개발자 선주입니다.
+            경험을 설계하는 디자이너
+            <br />
+            선주입니다
           </h2>
         </div>
         <svg
