@@ -33,7 +33,7 @@ const Header = () => {
           <Link to="/" onClick={goHome}>
             <img src="/images/logo.png" alt="logo" className="logo" />
             <span className="name">KIMSEONJU</span>
-            <span className="desc">2026 UI/UX/WEB DESIGN PORTFOLIO</span>
+            <span className="desc">2026 WEB PORTFOLIO</span>
           </Link>
         </h1>
         <NavBar />

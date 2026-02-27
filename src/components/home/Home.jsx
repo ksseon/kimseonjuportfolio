@@ -251,7 +251,7 @@ const Home = () => {
         <span className="who-center">Who am I ?</span>
         <div className="headline-layer">
           <h2 className="hero__headline">
-            경험을 설계하는 디자이너
+            경험을 설계하는 개발자
             <br />
             선주입니다
           </h2>
